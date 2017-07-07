@@ -212,7 +212,7 @@ class TailoringFilesTestCase(UITestCase):
 
         :id:
 
-        :setup: scap content, scap policy, tailoring file, host group, host
+        :setup: scap content, scap policy, tailoring file, host group
 
         :steps:
 
@@ -241,7 +241,7 @@ class TailoringFilesTestCase(UITestCase):
 
         :id:
 
-        :setup: scap content, scap policy, tailoring file, host group, host
+        :setup: scap content, scap policy, tailoring file, host group
 
         :steps:
 
@@ -269,7 +269,7 @@ class TailoringFilesTestCase(UITestCase):
         """ Fetch Tailoring file Information from Arf-reports
         :id:
 
-        :setup: scap content, scap policy, tailoring file, host group, host
+        :setup: scap content, scap policy, tailoring file, host group
 
         :steps:
 
@@ -300,7 +300,7 @@ class TailoringFilesTestCase(UITestCase):
 
         :steps:
 
-        1. Navigate to Tailoring Files menu.
+        1. Navigate to tailoring files menu.
 
         :CaseAutomation: Automated
 

@@ -30,7 +30,7 @@ class TailoringFilesTestCase(UITestCase):
 
         :id:
 
-        :setup: tailoring file
+        :setup: Oscap enabled on capsule and scap tailoring file
 
         :steps:
 
@@ -38,13 +38,11 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a valid tailoring file
         3. Give it a valid name
 
-
-        :CaseAutomation: Automated
+        :CaseAutomation: notutomated
 
         :expectedresults: Tailoring file will be added to satellite
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -63,12 +61,11 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a valid tailoring file
         3. Give it a name with space
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: Tailoring file will be added to satellite
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -86,13 +83,11 @@ class TailoringFilesTestCase(UITestCase):
         1. Navigate to Tailoring files menu
         2. With valid name ,upload a valid tailoring file
 
-
         :CaseAutomation: Automated
 
         :expectedresults: Tailoring file will be added to satellite
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -115,7 +110,6 @@ class TailoringFilesTestCase(UITestCase):
         :expectedresults: Tailoring file will not be added to satellite
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -139,7 +133,6 @@ class TailoringFilesTestCase(UITestCase):
         :expectedresults: Association should be successful
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -158,13 +151,11 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a Mutually exclusive tailoring file
         3. Associate the scap content with tailoring file
 
-
         :CaseAutomation: Automated
 
         :expectedresults: Association should fail
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -183,13 +174,11 @@ class TailoringFilesTestCase(UITestCase):
         2. Create tailoring file in satellite
         3. Download the uploaded tailoring file
 
-
         :CaseAutomation: Automated
 
         :expectedresults: The tailoring file should be downloaded
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -213,7 +202,6 @@ class TailoringFilesTestCase(UITestCase):
         :expectedresults: Tailoring file should be deleted
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -234,16 +222,15 @@ class TailoringFilesTestCase(UITestCase):
         4. Associate scap content with it’s tailoring file
         5. Associate the policy with a hostgroup
         6. Provision a host using the hostgroup
-        7. Puppet should configure and fetch the scap content and tailoring file
-
+        7. Puppet should configure and fetch the scap content
+           and tailoring file
 
         :CaseAutomation: Automated
 
-        :expectedresults: ARF report should be sent to satellite reflecting the changes done via tailoring files
-
+        :expectedresults: ARF report should be sent to satellite reflecting
+                         the changes done via tailoring files
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -264,15 +251,15 @@ class TailoringFilesTestCase(UITestCase):
         4. Associate scap content with it’s tailoring file
         5. Associate the policy with a hostgroup
         6. Provision a host using the hostgroup
-        7. Puppet should configure and fetch the scap content and tailoring file from external capsule
-
+        7. Puppet should configure and fetch the scap content
+           and tailoring file from external capsule
 
         :CaseAutomation: Automated
 
-        :expectedresults: ARF report should be sent to satellite reflecting the changes done via tailoring files
+        :expectedresults: ARF report should be sent to satellite
+                         reflecting the changes done via tailoring files
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -292,14 +279,15 @@ class TailoringFilesTestCase(UITestCase):
         4. Associate scap content with it’s tailoring file
         5. Associate the policy with a hostgroup
         6. Provision a host using the hostgroup
-        7. Puppet should configure and fetch the scap content and send arf-report to satellite
+        7. Puppet should configure and fetch the scap content
+           and send arf-report to satellite
 
         :CaseAutomation: Automated
 
-        :expectedresults: ARF report should have information about the tailoring file used, if any
+        :expectedresults: ARF report should have information
+                          about the tailoring file used, if any
 
         :CaseImportance: Critical
-
         """
 
     @run_only_on('sat')
@@ -310,8 +298,6 @@ class TailoringFilesTestCase(UITestCase):
 
         :id:
 
-        :setup:
-
         :steps:
 
         1. Navigate to Tailoring Files menu.
@@ -321,5 +307,4 @@ class TailoringFilesTestCase(UITestCase):
         :expectedresults:  Display a message about no supported capsule
 
         :CaseImportance: Critical
-
         """

@@ -38,7 +38,7 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a valid tailoring file
         3. Give it a valid name
 
-        :CaseAutomation: notutomated
+        :CaseAutomation: notautomated
 
         :expectedresults: Tailoring file will be added to satellite
 
@@ -105,7 +105,7 @@ class TailoringFilesTestCase(UITestCase):
         1. Navigate to Tailoring files menu
         2. With valid name ,upload  invalid tailoring file
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: Tailoring file will not be added to satellite
 
@@ -128,7 +128,7 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a vaild tailoring file
         3. Associate scap content with it’s tailoring file
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: Association should be successful
 
@@ -151,7 +151,7 @@ class TailoringFilesTestCase(UITestCase):
         2. Upload a Mutually exclusive tailoring file
         3. Associate the scap content with tailoring file
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: Association should fail
 
@@ -174,7 +174,7 @@ class TailoringFilesTestCase(UITestCase):
         2. Create tailoring file in satellite
         3. Download the uploaded tailoring file
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: The tailoring file should be downloaded
 
@@ -197,7 +197,7 @@ class TailoringFilesTestCase(UITestCase):
         2. Create tailoring file in satellite
         3. Delete the created tailoring file.
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: Tailoring file should be deleted
 
@@ -225,7 +225,7 @@ class TailoringFilesTestCase(UITestCase):
         7. Puppet should configure and fetch the scap content
            and tailoring file
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: ARF report should be sent to satellite reflecting
                          the changes done via tailoring files
@@ -254,7 +254,7 @@ class TailoringFilesTestCase(UITestCase):
         7. Puppet should configure and fetch the scap content
            and tailoring file from external capsule
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: ARF report should be sent to satellite
                          reflecting the changes done via tailoring files
@@ -282,7 +282,7 @@ class TailoringFilesTestCase(UITestCase):
         7. Puppet should configure and fetch the scap content
            and send arf-report to satellite
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults: ARF report should have information
                           about the tailoring file used, if any
@@ -302,7 +302,7 @@ class TailoringFilesTestCase(UITestCase):
 
         1. Navigate to tailoring files menu.
 
-        :CaseAutomation: Automated
+        :CaseAutomation: notautomated
 
         :expectedresults:  Display a message about no supported capsule
 

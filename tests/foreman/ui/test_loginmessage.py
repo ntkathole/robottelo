@@ -38,7 +38,6 @@ class LoginMessageTestCase(UITestCase):
                 2. Click on general tab
                 3. Give valid login page footer message
 
-
                 :CaseAutomation: notautomated
 
                 :expectedresults: Message should be displayed on login page.
@@ -59,7 +58,6 @@ class LoginMessageTestCase(UITestCase):
                 1. Navigate to Administer -> settings
                 2. Click on general tab
                 3. Give invalid login page footer message
-
 
                 :CaseAutomation: notautomated
 

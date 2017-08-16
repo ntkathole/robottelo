@@ -14,9 +14,15 @@
 
 :Upstream: No
 """
-
+from fauxfactory import gen_string
+from nailgun import entities
+from robottelo.config import settings
+from robottelo.constants import LDAP_ATTR, LDAP_SERVER_TYPE
 from robottelo.decorators import skip_if_not_set, stubbed, tier1, tier3
 from robottelo.test import UITestCase
+from robottelo.ui.factory import make_ldapauth, make_role
+from robottelo.ui.locators import common_locators, tab_locators
+from robottelo.ui.session import Session
 
 
 class LDAPAuthTestCase(UITestCase):
@@ -35,6 +41,15 @@ class LDAPAuthTestCase(UITestCase):
     # LDAP authentication:
     # http://theforeman.org/manuals/1.8/index.html#4.1.1LDAPAuthentication
     # LDAP Auth testing involves testing with RHDS(389), IdM(IPA) and AD ldap.
+    @classmethod
+    @skip_if_not_set('ldap')
+    def setUpClass(cls):
+        super(LDAPAuthTestCase, cls).setUpClass()
+        cls.ldap_user_name = settings.ldap.username
+        cls.ldap_user_passwd = settings.ldap.password
+        cls.base_dn = settings.ldap.basedn
+        cls.group_base_dn = settings.ldap.grpbasedn
+        cls.ldap_hostname = settings.ldap.hostname
 
     @skip_if_not_set('ldap')
     @stubbed()
@@ -98,7 +113,6 @@ class LDAPAuthTestCase(UITestCase):
         """
 
     @skip_if_not_set('ldap')
-    @stubbed()
     @tier3
     def test_positive_ad_basic_no_roles(self):
         """Login with LDAP Auth- AD for user with no roles/rights
@@ -112,13 +126,34 @@ class LDAPAuthTestCase(UITestCase):
         :expectedresults: Log in to foreman UI successfully but cannot access
             functional areas of UI
 
-        :caseautomation: notautomated
-
         :CaseLevel: System
         """
+        server_name = gen_string('alpha')
+        with Session(self) as session:
+            make_ldapauth(
+                session,
+                name=server_name,
+                server=self.ldap_hostname,
+                server_type=LDAP_SERVER_TYPE['UI']['ad'],
+                login_name=LDAP_ATTR['login_ad'],
+                first_name=LDAP_ATTR['firstname'],
+                surname=LDAP_ATTR['surname'],
+                mail=LDAP_ATTR['mail'],
+                account_user=self.ldap_user_name,
+                account_passwd=self.ldap_user_passwd,
+                account_basedn=self.base_dn,
+                account_grpbasedn=self.group_base_dn,
+                orgs=[entities.Organization().create().name],
+                org_select=True,
+                locations=[entities.Location().create().name],
+                loc_select=True,
+            )
+        with Session(self, user=self.ldap_user_name,
+                     password=self.ldap_user_passwd):
+            self.assertIsNotNone(self.user.wait_until_element(
+                common_locators['permission_denied']))
 
     @skip_if_not_set('ldap')
-    @stubbed()
     @tier3
     def test_positive_ad_basic_roles(self):
         """Login with LDAP - AD for user with roles/rights
@@ -132,10 +167,62 @@ class LDAPAuthTestCase(UITestCase):
         :expectedresults: Log in to foreman UI successfully and can access
             appropriate functional areas in UI
 
-        :caseautomation: notautomated
-
         :CaseLevel: System
         """
+        server_name = gen_string('alpha')
+        with Session(self) as session:
+            make_ldapauth(
+                session,
+                name=server_name,
+                server=self.ldap_hostname,
+                server_type=LDAP_SERVER_TYPE['UI']['ad'],
+                login_name=LDAP_ATTR['login_ad'],
+                first_name=LDAP_ATTR['firstname'],
+                surname=LDAP_ATTR['surname'],
+                mail=LDAP_ATTR['mail'],
+                account_user=self.ldap_user_name,
+                account_passwd=self.ldap_user_passwd,
+                account_basedn=self.base_dn,
+                account_grpbasedn=self.group_base_dn,
+                orgs=[entities.Organization().create().name],
+                org_select=True,
+                locations=[entities.Location().create().name],
+                loc_select=True,
+            )
+        with Session(self, user=self.ldap_user_name,
+                     password=self.ldap_user_passwd):
+            pass
+        with Session(self) as session:
+            strategy, value = common_locators['entity_deselect']
+            name = self.ldap_user_name
+            resource_type = 'Architecture'
+            permissions = ['view_architectures']
+            role_name = gen_string('alphanumeric')
+            make_role(session, name=role_name)
+            self.assertIsNotNone(self.role.search(role_name))
+            self.role.add_permission(
+                role_name,
+                resource_type=resource_type,
+                permission_list=permissions,
+            )
+            self.assertIsNotNone(
+                self.role.wait_until_element(
+                    common_locators['alert.success']))
+            assigned_permissions = self.role.get_permissions(
+                role_name, [resource_type])
+            self.assertIsNotNone(assigned_permissions)
+            self.assertEqual(
+                set(permissions), set(assigned_permissions[resource_type]))
+            self.user.update(name, new_roles=[role_name])
+            self.user.click(self.user.search(name))
+            self.user.click(tab_locators['users.tab_roles'])
+            self.assertIsNotNone(
+                self.user.wait_until_element((strategy, value % role_name)))
+        with Session(self, user=self.ldap_user_name,
+                     password=self.ldap_user_passwd):
+            arch_name = gen_string('alphanumeric')
+            entities.Architecture(name=arch_name).create()
+            self.assertIsNotNone(self.architecture.search(arch_name))
 
     @skip_if_not_set('ldap')
     @stubbed()

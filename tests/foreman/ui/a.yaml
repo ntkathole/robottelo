@@ -1,0 +1,31 @@
+- job:
+    disabled: false
+    name: 'RCM-compose-compare'
+    description: |
+        Quickly compare packages in two different release engineering builds and assure all packages are signed and check signed
+        with particulat signature.
+    parameters:
+        - string:
+            name: SATELLITE_SNAP_URL
+            description: Required
+        - string:
+            name: RCM_COMPOSE_URL
+            description: Required
+        - string:
+            name: SIGNATURE
+            description: Required
+    scm:
+        - git:
+            url: https://github.com/ntkathole/compare_builds.git
+            branches:
+                - origin/master
+            skip-tag: true
+    builders:
+        - conditional-step:
+            condition-kind: always
+            steps:
+              - shell: pip install beautifulsoup
+              - shell: pip install wget
+              - shell: rm * -rvf
+              - shell: git clone https://github.com/ntkathole/compare_builds.git
+              - shell: python compare_builds/compare_versions.py $SATELLITE_SNAP_URL $RCM_COMPOSE_URL $SIGNATURE

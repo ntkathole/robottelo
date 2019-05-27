@@ -438,7 +438,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
         # Make sure that content view version is still present
         self.assertEqual(len(content_view.read().version), 1)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_remove_renamed_cv_version_from_default_env(self):
         """Remove version of renamed content view from Library environment
@@ -493,7 +492,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
         # environment
         self.assertEqual(len(content_view_version.read().environment), 0)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_remove_qe_promoted_cv_version_from_default_env(self):
         """Remove QE promoted content view version from Library environment
@@ -557,7 +555,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
             {lce.id for lce in content_view_version.read().environment}
         )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_remove_prod_promoted_cv_version_from_default_env(self):
         """Remove PROD promoted content view version from Library environment
@@ -645,7 +642,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
             {lce.id for lce in content_view_version.read().environment}
         )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_remove_cv_version_from_env(self):
         """Remove promoted content view version from environment
@@ -740,7 +736,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
             {lce.id for lce in content_view_version.read().environment}
         )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_remove_cv_version_from_multi_env(self):
         """Remove promoted content view version from multiple environment
@@ -827,7 +822,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
         )
 
     @upgrade
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_cv_promoted_to_multi_env(self):
         """Delete published content view with version promoted to multiple
@@ -915,7 +909,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
             content_view.read()
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_remove_cv_version_from_env_with_host_registered(self):
         """Remove promoted content view version from environment that is used
@@ -954,7 +947,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
 
     @upgrade
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_delete_cv_multi_env_promoted_with_host_registered(self):
         """Delete published content view with version promoted to multiple
@@ -995,7 +987,6 @@ class ContentViewVersionDeleteTestCase(APITestCase):
         """
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_remove_cv_version_from_multi_env_capsule_scenario(self):
         """Remove promoted content view version from multiple environment,

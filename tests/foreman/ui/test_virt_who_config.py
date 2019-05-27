@@ -47,7 +47,6 @@ from robottelo.vm import VirtualMachine
 class VirtWhoConfigTestCase(UITestCase):
     """Implements Virt-who-configure UI tests"""
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_welcome_page(self):
@@ -64,7 +63,6 @@ class VirtWhoConfigTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_configurations_page(self):
@@ -81,7 +79,6 @@ class VirtWhoConfigTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_postitve_config_change_redeploy(self):
@@ -98,7 +95,6 @@ class VirtWhoConfigTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_virt_who_user_login(self):
@@ -119,7 +115,6 @@ class VirtWhoConfigTestCase(UITestCase):
             users created by virt-who config is not able to access UI
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_config_page_populated(self):
@@ -135,7 +130,6 @@ class VirtWhoConfigTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_config_page_empty(self):
@@ -162,7 +156,6 @@ class VirtWhoConfigDashboardTestCase(UITestCase):
 
     """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_dashboard_no_reports(self):
@@ -179,7 +172,6 @@ class VirtWhoConfigDashboardTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_dashboard_out_of_date(self):
@@ -196,7 +188,6 @@ class VirtWhoConfigDashboardTestCase(UITestCase):
 
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_dashboard_up_to_date(self):
@@ -213,7 +204,6 @@ class VirtWhoConfigDashboardTestCase(UITestCase):
 
 
         """
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_lastest_out_of_date(self):

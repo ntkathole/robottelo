@@ -84,7 +84,6 @@ class ArchitectureTestCase(CLITestCase):
                 self.assertEqual(architecture['name'], new_name)
 
     @tier1
-    @run_only_on('sat')
     def test_negative_update_name(self):
         """Create Architecture then fail to update its name
 
@@ -108,7 +107,6 @@ class ArchitectureTestCase(CLITestCase):
                 self.assertEqual(architecture['name'], result['name'])
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     def test_positive_delete_by_id(self):
         """Create Architecture with valid values then delete it
@@ -128,7 +126,6 @@ class ArchitectureTestCase(CLITestCase):
                     Architecture.info({'id': architecture['id']})
 
     @tier1
-    @run_only_on('sat')
     def test_negative_delete_by_id(self):
         """Create Architecture then delete it by wrong ID
 

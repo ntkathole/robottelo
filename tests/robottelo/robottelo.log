@@ -1,0 +1,42 @@
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Bugzilla bug 1 not in cache. Fetching.
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Unauthenticated call made to BZ API, no flags data will be available
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Bugzilla bug 2 not in cache. Fetching.
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - Unauthenticated call made to BZ API, no flags data will be available
+2017-07-20 12:06:27 - robozilla.decorators - WARNING - 
+2017-07-20 12:06:27 - robozilla.decorators - DEBUG - Bugzilla bug 4242 found in cache.
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Bugzilla bug 4242 not in cache. Fetching.
+2017-07-20 12:06:27 - robozilla.decorators - DEBUG - Redmine bug 4242 found in cache.
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:06:27 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:06:27 - robottelo.decorators - INFO - foo
+2017-07-20 12:06:27 - robottelo.decorators - INFO - Skipping due expected condition is true
+2017-07-20 12:06:27 - robottelo.decorators - INFO - Skipping due expected condition is true
+2017-07-20 12:06:27 - robozilla.decorators - DEBUG - Skipping test foo in module tests.robottelo.test_decorators due to Bugzilla bug #123456
+2017-07-20 12:06:27 - robozilla.decorators - DEBUG - Skipping test foo in module tests.robottelo.test_decorators due to Redmine bug #123456
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Bugzilla with both downstream and zstream flags and unspecified target_milestone: {'status': 'VERIFIED', 'target_milestone': 'Unspecified', 'whiteboard': '', 'flags': {'sat-6.3.0': '+', 'sat-6.2.z': '+'}, 'id': 1}
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Bugzilla bug 1 not in cache. Fetching.
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Unauthenticated call made to BZ API, no flags data will be available
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Bugzilla bug 2 not in cache. Fetching.
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - Unauthenticated call made to BZ API, no flags data will be available
+2017-07-20 12:07:33 - robozilla.decorators - WARNING - 
+2017-07-20 12:07:33 - robozilla.decorators - DEBUG - Bugzilla bug 4242 found in cache.
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Bugzilla bug 4242 not in cache. Fetching.
+2017-07-20 12:07:33 - robozilla.decorators - DEBUG - Redmine bug 4242 found in cache.
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:07:33 - robozilla.decorators - INFO - Redmine bug 4242 not in cache. Fetching.
+2017-07-20 12:07:33 - robottelo.decorators - INFO - foo
+2017-07-20 12:07:33 - robottelo.decorators - INFO - Skipping due expected condition is true
+2017-07-20 12:07:33 - robottelo.decorators - INFO - Skipping due expected condition is true
+2017-07-20 12:07:33 - robozilla.decorators - DEBUG - Skipping test foo in module tests.robottelo.test_decorators due to Bugzilla bug #123456
+2017-07-20 12:07:33 - robozilla.decorators - DEBUG - Skipping test foo in module tests.robottelo.test_decorators due to Redmine bug #123456

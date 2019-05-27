@@ -40,7 +40,6 @@ class ReportTestCase(CLITestCase):
         """
         ssh.command('puppet agent -t')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list(self):
         """Test list for Puppet report
@@ -53,7 +52,6 @@ class ReportTestCase(CLITestCase):
         """
         Report.list()
 
-    @run_only_on('sat')
     @tier1
     def test_positive_info(self):
         """Test Info for Puppet report
@@ -71,7 +69,6 @@ class ReportTestCase(CLITestCase):
         result = Report.info({'id': report['id']})
         self.assertEqual(report['id'], result['id'])
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_id(self):

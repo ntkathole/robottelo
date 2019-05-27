@@ -49,7 +49,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_positive_create_osp_with_valid_name(self):
         """Create Compute Resource of type Openstack with valid name
 
@@ -73,7 +72,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_positive_osp_info(self):
         """List the info of Openstack compute resource
 
@@ -98,7 +96,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_positive_delete_by_name(self):
         """Delete the Openstack compute resource by name
 
@@ -123,7 +120,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     @upgrade
     def test_positive_delete_by_id(self):
         """Delete the Openstack compute resource by id
@@ -149,7 +145,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_negative_create_osp_with_url(self):
         """Attempt to create Openstack compute resource with invalid URL
 
@@ -170,7 +165,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_negative_create_with_same_name(self):
         """Attempt to create Openstack compute resource with the same name as
         an existing one
@@ -208,7 +202,6 @@ class OSPComputeResourceTestCase(CLITestCase):
 
     @tier1
     @skip_if_bug_open('bugzilla', 1579714)
-    @run_only_on('sat')
     def test_positive_update_name(self):
         """Update Openstack compute resource name
 
@@ -242,7 +235,6 @@ class OSPComputeResourceTestCase(CLITestCase):
         )
 
     @tier3
-    @run_only_on('sat')
     @stubbed()
     def test_positive_provision_osp_with_host_group(self):
         """Provision a host on Openstack compute resource with
@@ -265,7 +257,6 @@ class OSPComputeResourceTestCase(CLITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

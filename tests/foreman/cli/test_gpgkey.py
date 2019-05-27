@@ -83,7 +83,6 @@ class TestGPGKey(CLITestCase):
 
     # Bug verification
 
-    @run_only_on('sat')
     @tier1
     def test_verify_redmine_4272(self):
         """gpg info should display key content
@@ -105,7 +104,6 @@ class TestGPGKey(CLITestCase):
         })
         self.assertEqual(gpg_key['content'], content)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_get_info_by_name(self):
         """Create single gpg key and get its info by name
@@ -131,7 +129,6 @@ class TestGPGKey(CLITestCase):
 
     # Positive Create
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_default_org(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -161,7 +158,6 @@ class TestGPGKey(CLITestCase):
                     result[self.search_key]
                 )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_custom_org(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -192,7 +188,6 @@ class TestGPGKey(CLITestCase):
 
     # Negative Create
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_same_name(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -222,7 +217,6 @@ class TestGPGKey(CLITestCase):
                 'organization-id': self.org['id'],
             })
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_no_gpg_key(self):
         """Create gpg key with valid name and no gpg key
@@ -241,7 +235,6 @@ class TestGPGKey(CLITestCase):
                         'organization-id': self.org['id'],
                     })
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_invalid_name(self):
         """Create gpg key with invalid name and valid gpg key via
@@ -263,7 +256,6 @@ class TestGPGKey(CLITestCase):
                     })
 
     # Positive Delete
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete(self):
@@ -302,7 +294,6 @@ class TestGPGKey(CLITestCase):
 
     # Positive Update
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_name(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -327,7 +318,6 @@ class TestGPGKey(CLITestCase):
                     'organization-id': self.org['id'],
                 })
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_key(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -358,7 +348,6 @@ class TestGPGKey(CLITestCase):
         self.assertEqual(gpg_key['content'], content)
 
     # Negative Update
-    @run_only_on('sat')
     @tier1
     def test_negative_update_name(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -381,7 +370,6 @@ class TestGPGKey(CLITestCase):
                     })
 
     # Product association
-    @run_only_on('sat')
     @tier2
     def test_positive_add_empty_product(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -400,7 +388,6 @@ class TestGPGKey(CLITestCase):
         })
         self.assertEqual(product['gpg']['gpg-key'], gpg_key['name'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_add_product_with_repo(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -429,7 +416,6 @@ class TestGPGKey(CLITestCase):
         self.assertEqual(product['gpg']['gpg-key-id'], gpg_key['id'])
         self.assertEqual(repo['gpg-key']['id'], gpg_key['id'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_add_product_with_repos(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -464,7 +450,6 @@ class TestGPGKey(CLITestCase):
             self.assertEqual(repo['gpg-key']['id'], gpg_key['id'])
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_add_product_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -481,7 +466,6 @@ class TestGPGKey(CLITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_add_repo_from_product_with_repo(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -511,7 +495,6 @@ class TestGPGKey(CLITestCase):
         self.assertEqual(repo['gpg-key']['id'], gpg_key['id'])
         self.assertNotEqual(product['gpg'].get('gpg-key-id'), gpg_key['id'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_add_repo_from_product_with_repos(self):
         """Create gpg key via file import and associate with custom repo
@@ -551,7 +534,6 @@ class TestGPGKey(CLITestCase):
             self.assertNotEqual(repo['gpg-key'].get('id'), gpg_key['id'])
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_add_repos_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -568,7 +550,6 @@ class TestGPGKey(CLITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_empty_product(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -617,7 +598,6 @@ class TestGPGKey(CLITestCase):
         })
         self.assertEqual(product['gpg']['gpg-key'], new_name)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_product_with_repo(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -673,7 +653,6 @@ class TestGPGKey(CLITestCase):
         repo = Repository.info({'id': repo['id']})
         self.assertEqual(repo['gpg-key'].get('id'), gpg_key['id'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_product_with_repos(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -735,7 +714,6 @@ class TestGPGKey(CLITestCase):
             self.assertEqual(repo['gpg-key'].get('name'), new_name)
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_product_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -752,7 +730,6 @@ class TestGPGKey(CLITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_repo_from_product_with_repo(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -799,7 +776,6 @@ class TestGPGKey(CLITestCase):
         })
         self.assertNotEqual(product['gpg']['gpg-key'], new_name)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_repo_from_product_with_repos(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -859,7 +835,6 @@ class TestGPGKey(CLITestCase):
             self.assertNotEqual(repo['gpg-key'].get('name'), new_name)
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_update_key_for_repos_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -876,7 +851,6 @@ class TestGPGKey(CLITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_empty_product(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -916,7 +890,6 @@ class TestGPGKey(CLITestCase):
         })
         self.assertNotEqual(product['gpg']['gpg-key'], gpg_key['name'])
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_delete_key_for_product_with_repo(self):
@@ -970,7 +943,6 @@ class TestGPGKey(CLITestCase):
         self.assertNotEqual(product['gpg']['gpg-key'], gpg_key['name'])
         self.assertNotEqual(repo['gpg-key'].get('name'), gpg_key['name'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_product_with_repos(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -1030,7 +1002,6 @@ class TestGPGKey(CLITestCase):
             self.assertNotEqual(repo['gpg-key'].get('name'), gpg_key['name'])
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_product_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -1048,7 +1019,6 @@ class TestGPGKey(CLITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_repo_from_product_with_repo(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -1097,7 +1067,6 @@ class TestGPGKey(CLITestCase):
         repo = Repository.info({'id': repo['id']})
         self.assertNotEqual(repo['gpg-key'].get('name'), gpg_key['name'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_repo_from_product_with_repos(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -1150,7 +1119,6 @@ class TestGPGKey(CLITestCase):
             self.assertNotEqual(repo['gpg-key'].get('name'), gpg_key['name'])
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_key_for_repos_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -1171,7 +1139,6 @@ class TestGPGKey(CLITestCase):
     # Content
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_consume_content_using_repo(self):
         """Hosts can install packages using gpg key associated with
@@ -1187,7 +1154,6 @@ class TestGPGKey(CLITestCase):
         """
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     @upgrade
     def test_positive_consume_content_using_repos(self):
@@ -1204,7 +1170,6 @@ class TestGPGKey(CLITestCase):
         """
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_consume_content_using_repos_and_different_keys(self):
         """Hosts can install packages using different gpg keys
@@ -1221,7 +1186,6 @@ class TestGPGKey(CLITestCase):
 
     # Miscelaneous
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list(self):
         """Create gpg key and list it
@@ -1239,7 +1203,6 @@ class TestGPGKey(CLITestCase):
         gpg_keys_list = GPGKey.list({'organization-id': self.org['id']})
         self.assertIn(gpg_key['id'], [gpg['id'] for gpg in gpg_keys_list])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_search(self):
         """Create gpg key and search/find it

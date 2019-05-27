@@ -27,7 +27,6 @@ from robottelo.test import UITestCase
 class OpenstackComputeResourceTestCase(UITestCase):
     """Implements compute resource tests in UI"""
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_openstack_with_name(self):
@@ -51,7 +50,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_openstack_with_description(self):
@@ -74,7 +72,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_openstack_with_invalid_name(self):
@@ -98,7 +95,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_update_openstack_name(self):
@@ -123,7 +119,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_update_openstack_organization(self):
@@ -147,7 +142,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_delete_openstack(self):
@@ -172,7 +166,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_add_image_openstack_with_name(self):
@@ -195,7 +188,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
          """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_negative_add_image_openstack_with_invalid_name(self):
@@ -218,7 +210,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_access_openstack_with_default_profile(self):
@@ -242,7 +233,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_access_openstack_with_custom_profile(self):
@@ -265,7 +255,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_retrieve_openstack_vm_list(self):
@@ -285,7 +274,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_openstack_host_with_image(self):
@@ -317,7 +305,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_openstack_with_compute_profile(self):
@@ -340,7 +327,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_openstack_with_custom_compute_settings(self):
@@ -365,7 +351,6 @@ class OpenstackComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

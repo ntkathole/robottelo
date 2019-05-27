@@ -306,7 +306,6 @@ class OrganizationTestCase(UITestCase):
                         common_locators['name_haserror'])
                     self.assertIsNotNone(error)
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_create_with_smartproxy(self):
@@ -321,7 +320,6 @@ class OrganizationTestCase(UITestCase):
         :CaseLevel: Integration
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_update_smartproxy(self):

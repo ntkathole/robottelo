@@ -37,7 +37,6 @@ class PuppetTestCase(CLITestCase):
         super(PuppetTestCase, cls).setUpClass()
         cls.sat6_hostname = settings.server.hostname
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -85,7 +84,6 @@ class PuppetCapsuleTestCase(CLITestCase):
         super(PuppetCapsuleTestCase, cls).setUpClass()
         cls.sat6_hostname = settings.server.hostname
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

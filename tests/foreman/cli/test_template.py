@@ -35,7 +35,6 @@ from robottelo.test import CLITestCase
 class TemplateTestCase(CLITestCase):
     """Test class for Config Template CLI."""
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_name(self):
         """Check if Template can be created
@@ -50,7 +49,6 @@ class TemplateTestCase(CLITestCase):
         template = make_template({'name': name})
         self.assertEqual(template['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_name(self):
         """Check if Template can be updated
@@ -106,7 +104,6 @@ class TemplateTestCase(CLITestCase):
         template = Template.info({'id': template['id']})
         self.assertEqual(new_name, template['name'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_loc(self):
         """Check if Template with Location can be created
@@ -122,7 +119,6 @@ class TemplateTestCase(CLITestCase):
         new_template = make_template({'location-ids': new_loc['id']})
         self.assertIn(new_loc['name'], new_template['locations'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_locked(self):
         """Check that locked Template can be created
@@ -140,7 +136,6 @@ class TemplateTestCase(CLITestCase):
         })
         self.assertEqual(new_template['locked'], 'yes')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_org(self):
         """Check if Template with Organization can be created
@@ -159,7 +154,6 @@ class TemplateTestCase(CLITestCase):
         })
         self.assertIn(new_org['name'], new_template['organizations'])
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_add_os_by_id(self):
@@ -182,7 +176,6 @@ class TemplateTestCase(CLITestCase):
             new_os['name'], new_os['major-version'], new_os['minor-version'])
         self.assertIn(os_string, new_template['operating-systems'])
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1395229)
     @tier2
     def test_positive_remove_os_by_id(self):
@@ -212,7 +205,6 @@ class TemplateTestCase(CLITestCase):
         template = Template.info({'id': template['id']})
         self.assertNotIn(os_string, template['operating-systems'])
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_with_content(self):
@@ -234,7 +226,6 @@ class TemplateTestCase(CLITestCase):
         template_content = Template.dump({'id': template['id']})
         self.assertIn(content, template_content[0])
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_id(self):
@@ -251,7 +242,6 @@ class TemplateTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Template.info({'id': template['id']})
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_clone(self):

@@ -31,7 +31,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
     def setUpClass(cls):
         super(Ec2ComputeResourceTestCase, cls).setUpClass()
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_update_ec2_organization(self):
@@ -55,7 +54,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_add_image_ec2_with_name(self):
@@ -80,7 +78,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
          """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_negative_add_image_ec2_with_invalid_name(self):
@@ -105,7 +102,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_access_ec2_with_default_profile(self):
@@ -129,7 +125,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_access_ec2_with_custom_profile(self):
@@ -153,7 +148,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_retrieve_ec2_vm_list(self):
@@ -173,7 +167,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_host_with_image(self):
@@ -217,7 +210,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_with_compute_profile(self):
@@ -247,7 +239,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_with_custom_compute_settings(self):
@@ -277,7 +268,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

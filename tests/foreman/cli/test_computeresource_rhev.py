@@ -49,7 +49,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         cls.datacenter = settings.rhev.datacenter
 
     @tier1
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1602835)
     def test_positive_create_rhev_with_valid_name(self):
         """Create Compute Resource of type Rhev with valid name
@@ -70,7 +69,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         })
 
     @tier1
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1602835)
     def test_positive_rhev_info(self):
         """List the info of RHEV compute resource
@@ -93,7 +91,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         self.assertEquals(compute_resource['name'], name)
 
     @tier1
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1602835)
     def test_positive_delete_by_name(self):
         """Delete the RHEV compute resource by name
@@ -117,7 +114,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         self.assertFalse(result)
 
     @tier1
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1602835)
     def test_positive_delete_by_id(self):
         """Delete the RHEV compute resource by id
@@ -141,7 +137,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         self.assertFalse(result)
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create_rhev_with_url(self):
         """RHEV compute resource negative create with invalid values
 
@@ -161,7 +156,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
             })
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create_with_same_name(self):
         """RHEV compute resource negative create with the same name
 
@@ -197,7 +191,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
             })
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     @skip_if_bug_open('bugzilla', 1602835)
     def test_positive_update_name(self):
@@ -233,7 +226,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
         )
 
     @tier2
-    @run_only_on('sat')
     @stubbed()
     def test_positive_add_image_rhev_with_name(self):
         """Add images to the RHEV compute resource
@@ -255,7 +247,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
          """
 
     @tier2
-    @run_only_on('sat')
     @stubbed()
     def test_negative_add_image_rhev_with_invalid_name(self):
         """Attempt to add invalid image to the RHEV compute resource
@@ -278,7 +269,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
 
     @tier2
     @skip_if_bug_open('bugzilla', 1278917)
-    @run_only_on('sat')
     @stubbed()
     def test_positive_access_rhev_with_default_profile(self):
         """List Compute profile for RHEV compute resource
@@ -294,7 +284,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
 
     @tier2
     @skip_if_bug_open('bugzilla', 1278917)
-    @run_only_on('sat')
     @stubbed()
     @upgrade
     def test_positive_access_rhev_with_custom_profile(self):
@@ -318,7 +307,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
 
     @tier2
     @skip_if_bug_open('bugzilla', 1278917)
-    @run_only_on('sat')
     @stubbed()
     def test_positive_access_rhev_with_custom_profile_with_template(self):
         """Associate custom default (3-Large) compute profile to RHEV compute
@@ -342,7 +330,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
 
     @tier2
     @skip_if_bug_open('bugzilla', 1475443)
-    @run_only_on('sat')
     @stubbed()
     def test_positive_retrieve_rhev_vm_list(self):
         """Retrieve the Virtual machine list from RHEV compute resource
@@ -363,7 +350,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
 
     @tier2
     @skip_if_bug_open('bugzilla', 1475443)
-    @run_only_on('sat')
     @stubbed()
     def test_positive_rhev_vm_power_on_off(self):
         """The virtual machine in RHEV compute resource should be powered
@@ -385,7 +371,6 @@ class RHEVComputeResourceTestCase(CLITestCase):
             successfully
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

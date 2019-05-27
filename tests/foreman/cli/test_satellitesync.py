@@ -400,7 +400,6 @@ class ContentViewSync(CLITestCase):
         super(ContentViewSync, self).tearDown()
         ssh.command('rm -rf {}/*'.format(self.export_base))
 
-    @run_only_on('sat')
     @tier3
     def test_positive_export_import_filtered_cvv(self):
         """CV Version with filtered contents only can be exported and imported.
@@ -476,7 +475,6 @@ class ContentViewSync(CLITestCase):
         imported_packages = Package.list({'content-view-version-id': importing_cvv[0]['id']})
         self.assertTrue(len(imported_packages) == 1)
 
-    @run_only_on('sat')
     @tier3
     def test_positive_export_import_cv(self):
         """Export CV version contents in directory and Import them.
@@ -1276,7 +1274,6 @@ class ContentViewSync(CLITestCase):
 class InterSatelliteSyncTestCase(CLITestCase):
     """Implements InterSatellite Sync tests in CLI"""
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_import_cv(self):
@@ -1305,7 +1302,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_cv(self):
@@ -1325,7 +1321,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1352,7 +1347,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_import_cv_iso(self):
@@ -1379,7 +1373,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_cv_iso(self):
@@ -1399,7 +1392,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_cv_iso_max_size(self):
@@ -1419,7 +1411,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_cv_iso_max_size(self):
@@ -1437,7 +1428,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1468,7 +1458,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_import_cv_incremental(self):
@@ -1496,7 +1485,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_exported_cv_iso_dir_structure(self):
@@ -1518,7 +1506,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1544,7 +1531,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_import_repo(self):
@@ -1570,7 +1556,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_repo(self):
@@ -1589,7 +1574,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_lazy_sync_repo(self):
@@ -1607,7 +1591,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1631,7 +1614,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1657,7 +1639,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_import_repo_iso(self):
@@ -1682,7 +1663,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_repo_iso(self):
@@ -1701,7 +1681,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_repo_iso_max_size(self):
@@ -1719,7 +1698,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_repo_iso_max_size(self):
@@ -1736,7 +1714,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_repo_from_future_datetime(self):
@@ -1754,7 +1731,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1783,7 +1759,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_import_repo_incremental(self):
@@ -1809,7 +1784,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_exported_repo_iso_dir_structure(self):
@@ -1831,7 +1805,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1858,7 +1831,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_import_kickstart_tree(self):
@@ -1888,7 +1860,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_negative_export_kickstart_tree(self):
@@ -1910,7 +1881,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
 
 # Red Hat Repositories Export and Import
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_redhat_yum_repo(self):
@@ -1928,7 +1898,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1952,7 +1921,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_redhat_incremental_yum_repo(self):
@@ -1974,7 +1942,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -1998,7 +1965,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_redhat_yum_repo_iso(self):
@@ -2016,7 +1982,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2040,7 +2005,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_redhat_yum_incremental_repo_iso(self):
@@ -2063,7 +2027,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2089,7 +2052,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_export_redhat_cv(self):
@@ -2108,7 +2070,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2133,7 +2094,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2160,7 +2120,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2178,7 +2137,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade
@@ -2203,7 +2161,6 @@ class InterSatelliteSyncTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

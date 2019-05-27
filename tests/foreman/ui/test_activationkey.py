@@ -417,7 +417,6 @@ class ActivationKeyTestCase(UITestCase):
                 self.assertIsNotNone(chost_url_id)
                 self.assertEqual(int(chost_url_id.group(0)), chost_id)
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_end_to_end(self):
@@ -441,7 +440,6 @@ class ActivationKeyTestCase(UITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_copy(self):
@@ -463,7 +461,6 @@ class ActivationKeyTestCase(UITestCase):
                     self.assertIsNotNone(
                         self.activationkey.search(new_name))
 
-    @run_only_on('sat')
     @tier1
     def test_negative_copy(self):
         """Create Activation key and fail copying it

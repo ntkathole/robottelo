@@ -36,7 +36,6 @@ class PuppetUpgradeTestCase(CLITestCase):
         super(PuppetUpgradeTestCase, cls).setUpClass()
         cls.sat6_hostname = settings.server.hostname
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_puppet_upgrade(self):
@@ -63,7 +62,6 @@ class PuppetUpgradeTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_puppet_capsule_upgrade(self):
@@ -90,7 +88,6 @@ class PuppetUpgradeTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_puppet_capsule_rolling_upgrade(self):

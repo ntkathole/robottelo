@@ -118,7 +118,6 @@ class DiscoveryTestCase(APITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_upload_facts(self):
         """Upload fake facts to create a discovered host

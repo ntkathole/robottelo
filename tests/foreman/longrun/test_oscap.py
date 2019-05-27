@@ -169,7 +169,6 @@ class OpenScapTestCase(CLITestCase):
             'env_name': env.name,
         }
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1479413)
     @tier4
     @upgrade
@@ -414,7 +413,6 @@ class OpenScapTestCase(CLITestCase):
                 Arfreport.list({'search': 'host={0}'.format(vm.hostname.lower())}))
 
     @upgrade
-    @run_only_on('sat')
     @tier4
     def test_positive_oscap_run_with_tailoring_file_and_capsule(self):
         """ End-to-End Oscap run with tailoring files and default capsule
@@ -529,7 +527,6 @@ class OpenScapTestCase(CLITestCase):
             self.assertIsNotNone(
                 Arfreport.list({'search': 'host={0}'.format(vm.hostname.lower())}))
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_has_arf_report_summary_page(self):
@@ -549,7 +546,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_view_full_report_button(self):
@@ -570,7 +566,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_download_xml_button(self):
@@ -592,7 +587,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_select_oscap_proxy(self):
@@ -612,7 +606,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_delete_multiple_arf_reports(self):
@@ -634,7 +627,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_reporting_emails_of_oscap_reports(self):

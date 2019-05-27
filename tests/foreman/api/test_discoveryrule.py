@@ -57,7 +57,6 @@ class DiscoveryRuleTestCase(APITestCase):
         )
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_name(self):
         """Create a new discovery rule.
 
@@ -79,7 +78,6 @@ class DiscoveryRuleTestCase(APITestCase):
                     discovery_rule.search_,
                 )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_org_loc(self):
         """Create discovery rule by associating org and location
@@ -103,7 +101,6 @@ class DiscoveryRuleTestCase(APITestCase):
         self.assertEqual(loc.name, discovery_rule.location[0].read().name)
 
     @tier1
-    @run_only_on('sat')
     def test_positive_delete(self):
         """Delete a discovery rule
 
@@ -168,7 +165,6 @@ class DiscoveryRuleTestCase(APITestCase):
             self.discovery_rule.create()
 
     @tier1
-    @run_only_on('sat')
     def test_positive_update_name(self):
         """Update an existing discovery rule name
 
@@ -185,7 +181,6 @@ class DiscoveryRuleTestCase(APITestCase):
                 discovery_rule = discovery_rule.update(['name'])
                 self.assertEqual(discovery_rule.name, name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_org_loc(self):
         """Update org and location of selected discovery rule

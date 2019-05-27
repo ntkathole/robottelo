@@ -125,7 +125,6 @@ class OpenScapTestCase(CLITestCase):
         Ansible.roles_import({'proxy-id': 1})
         Ansible.variables_import({'proxy-id': 1})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_default_content_with_admin(self):
         """List the default scap content with admin account
@@ -153,7 +152,6 @@ class OpenScapTestCase(CLITestCase):
             [scap['title'] for scap in result]
         )
 
-    @run_only_on('sat')
     @tier1
     def test_negative_list_default_content_with_viewer_role(self):
         """List the default scap content by user with viewer role
@@ -179,7 +177,6 @@ class OpenScapTestCase(CLITestCase):
         result = Scapcontent.with_user(login, password).list()
         self.assertEqual(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_view_scap_content_info_admin(self):
         """View info of scap content with admin account
@@ -209,7 +206,6 @@ class OpenScapTestCase(CLITestCase):
         result = Scapcontent.info({'title': title})
         self.assertEqual(result['title'], title)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_info_scap_content_viewer_role(self):
         """View info of scap content with viewer role
@@ -240,7 +236,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scapcontent.with_user(login, password).info({'title': title})
 
-    @run_only_on('sat')
     @tier1
     def test_negative_info_scap_content(self):
         """View info of scap content with invalid ID as parameter
@@ -267,7 +262,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scapcontent.info({'id': invalid_scap_id})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_scap_content_with_valid_title(self):
         """Create scap-content with valid title
@@ -299,7 +293,6 @@ class OpenScapTestCase(CLITestCase):
                     'scap-file': '/tmp/{0}'.format(self.file_name)})
                 self.assertEqual(scap_content['title'], title)
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1474172)
     @tier1
     def test_negative_create_scap_content_with_same_title(self):
@@ -341,7 +334,6 @@ class OpenScapTestCase(CLITestCase):
                 'scap-file': '/tmp/{0}'.format(self.file_name)
             })
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_scap_content_with_invalid_title(self):
         """Create scap-content with invalid title
@@ -371,7 +363,6 @@ class OpenScapTestCase(CLITestCase):
                         'title': title,
                         'scap-file': '/tmp/{0}'.format(self.file_name)})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_scap_content_with_valid_originalfile_name(self):
         """Create scap-content with valid original file name
@@ -402,7 +393,6 @@ class OpenScapTestCase(CLITestCase):
                 self.assertEqual(scap_content['original-filename'], name)
 
     @skip_if_bug_open('bugzilla', 1482395)
-    @run_only_on('sat')
     @tier1
     def test_negative_create_scap_content_with_invalid_originalfile_name(self):
         """Create scap-content with invalid original file name
@@ -432,7 +422,6 @@ class OpenScapTestCase(CLITestCase):
                         'original-filename': name,
                         'scap-file': '/tmp/{0}'.format(self.file_name)})
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_scap_content_without_dsfile(self):
         """Create scap-content without scap data stream xml file
@@ -460,7 +449,6 @@ class OpenScapTestCase(CLITestCase):
                     make_scapcontent({'title': title})
 
     @skip_if_bug_open('bugzilla', 1490302)
-    @run_only_on('sat')
     @tier1
     def test_positive_update_scap_content_with_newtitle(self):
         """Update scap content title
@@ -495,7 +483,6 @@ class OpenScapTestCase(CLITestCase):
             result = Scapcontent.info({'title': new_title}, output_format='json')
         self.assertEqual(result['title'], new_title)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_scap_content_with_id(self):
         """Delete a scap content with id as parameter
@@ -523,7 +510,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scapcontent.info({'id': scap_content['id']})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_scap_content_with_title(self):
         """Delete a scap content with title as parameter
@@ -553,7 +539,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scapcontent.info({'title': scap_content['title']})
 
-    @run_only_on('sat')
     @tier2
     def test_postive_create_scap_policy_with_valid_name(self):
         """Create scap policy with valid name
@@ -585,7 +570,6 @@ class OpenScapTestCase(CLITestCase):
                 })
                 self.assertEqual(scap_policy['name'], name)
 
-    @run_only_on('sat')
     @tier2
     def test_negative_create_scap_policy_with_invalid_name(self):
         """Create scap policy with invalid name
@@ -617,7 +601,6 @@ class OpenScapTestCase(CLITestCase):
                         'weekday': OSCAP_WEEKDAY['friday'].lower()
                     })
 
-    @run_only_on('sat')
     @tier2
     def test_negative_create_scap_policy_without_content(self):
         """Create scap policy without scap content
@@ -645,7 +628,6 @@ class OpenScapTestCase(CLITestCase):
                 'weekday': OSCAP_WEEKDAY['friday'].lower()
             })
 
-    @run_only_on('sat')
     @tier2
     def test_positive_associate_scap_policy_with_hostgroups(self):
         """Associate hostgroups to scap policy
@@ -680,7 +662,6 @@ class OpenScapTestCase(CLITestCase):
         })
         self.assertEqual(scap_policy['hostgroups'][0], hostgroup['name'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_associate_scap_policy_with_hostgroup_via_ansible(self):
         """Associate hostgroup to scap policy via ansible
@@ -718,7 +699,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertEqual(scap_policy['deployment-option'], 'ansible')
         self.assertEqual(scap_policy['hostgroups'][0], hostgroup['name'])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_associate_scap_policy_with_tailoringfiles_id(self):
         """Associate tailoring file by id to scap policy with all deployments
@@ -760,7 +740,6 @@ class OpenScapTestCase(CLITestCase):
                 self.assertEqual(scap_policy['tailoring-file-profile-id'],
                                  tailor_profile_id)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_associate_scap_policy_with_tailoringfiles_name(self):
         """Associate tailoring file by name to scap policy with all deployments
@@ -802,7 +781,6 @@ class OpenScapTestCase(CLITestCase):
                 self.assertEqual(scap_policy['tailoring-file-profile-id'],
                                  tailor_profile_id)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_list_scap_policy(self):
         """List all scap policies
@@ -838,7 +816,6 @@ class OpenScapTestCase(CLITestCase):
                               [policy['name'] for policy in result]
                               )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_info_scap_policy_with_id(self):
         """View info of policy with id as parameter
@@ -873,7 +850,6 @@ class OpenScapTestCase(CLITestCase):
                                  scap_policy['id']
                                  )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_info_scap_policy_with_name(self):
         """View info of policy with name as parameter
@@ -908,7 +884,6 @@ class OpenScapTestCase(CLITestCase):
                 self.assertEqual(scap_policy['deployment-option'], deploy)
                 self.assertEqual(Scappolicy.info({'name': scap_policy['name']})['name'], name)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_scap_policy_with_hostgroup(self):
         """Update scap policy by addition of hostgroup
@@ -953,7 +928,6 @@ class OpenScapTestCase(CLITestCase):
         # Assert if the deployment is updated
         self.assertEqual(scap_info['deployment-option'], 'ansible')
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_scap_policy_period(self):
         """Update scap policy by updating the period strategy
@@ -994,7 +968,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertEqual(scap_info['period'], OSCAP_PERIOD['monthly'].lower())
         self.assertEqual(scap_info['day-of-month'], '15')
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_update_scap_policy_with_content(self):
@@ -1041,7 +1014,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertEqual(scap_info['scap-content-profile-id'],
                          scap_profile_id[0])
 
-    @run_only_on('sat')
     @tier2
     def test_positive_update_scap_policy_with_tailoringfiles_id(self):
         """Update the scap policy by updating the scap tailoring file id
@@ -1086,7 +1058,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertEqual(scap_info['tailoring-file-profile-id'],
                          tailor_profile_id)
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_update_scap_policy_with_tailoringfiles_name(self):
@@ -1132,7 +1103,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertEqual(scap_info['tailoring-file-profile-id'],
                          tailor_profile_id)
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_delete_scap_policy_with_id(self):
@@ -1168,7 +1138,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scappolicy.info({'id': scap_policy['id']})
 
-    @run_only_on('sat')
     @tier2
     def test_positive_delete_scap_policy_with_name(self):
         """Delete the scap policy with name as parameter
@@ -1203,7 +1172,6 @@ class OpenScapTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Scapcontent.info({'name': scap_policy['name']})
 
-    @run_only_on('sat')
     @tier2
     def test_positive_associate_scap_policy_with_single_server(self):
         """Assign an audit policy to a single server
@@ -1245,7 +1213,6 @@ class OpenScapTestCase(CLITestCase):
         self.assertIn(host_name, [host['name'] for host in hosts],
                       'The attached host is different')
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_list_arf_reports(self):
@@ -1272,7 +1239,6 @@ class OpenScapTestCase(CLITestCase):
         """
 
     @upgrade
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_info_arf_report(self):
@@ -1299,7 +1265,6 @@ class OpenScapTestCase(CLITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     def test_positive_delete_arf_report(self):

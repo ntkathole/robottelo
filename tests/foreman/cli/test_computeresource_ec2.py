@@ -51,7 +51,6 @@ class EC2ComputeResourceTestCase(CLITestCase):
         cls.aws_managed_ip = settings.ec2.managed_ip
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     def test_positive_create_ec2_with_custom_region(self):
         """Create a new ec2 compute resource with custom region

@@ -163,7 +163,6 @@ class CapsuleInstallerTestCase(CLITestCase):
         """
 
     @run_in_one_thread
-    @run_only_on('sat')
     @skip_if_not_set('fake_manifest')
     @tier3
     def test_positive_reinstall_on_same_node_after_remove(self):

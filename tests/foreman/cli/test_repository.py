@@ -164,7 +164,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertEqual(
             repository['upstream-repository-name'], u'fedora/rabbitmq')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_name(self):
         """Check if repository can be created with random names
@@ -202,7 +201,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(new_repo['name'], name)
                 self.assertEqual(new_repo['label'], label)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_yum_repo(self):
         """Create YUM repository
@@ -254,7 +252,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(new_repo['url'], url)
                 self.assertEqual(new_repo['content-type'], u'puppet')
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_with_file_repo(self):
@@ -273,7 +270,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertEqual(new_repo['url'], CUSTOM_FILE_REPO)
         self.assertEqual(new_repo['content-type'], u'file')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_auth_yum_repo(self):
         """Create YUM repository with basic HTTP authentication
@@ -509,7 +505,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(new_repo['url'], url_encoded)
                 self.assertEqual(new_repo['content-type'], u'puppet')
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_with_gpg_key_by_id(self):
@@ -532,7 +527,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(new_repo['gpg-key']['id'], gpg_key['id'])
                 self.assertEqual(new_repo['gpg-key']['name'], gpg_key['name'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_gpg_key_by_name(self):
         """Check if repository can be created with gpg key name
@@ -556,7 +550,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(new_repo['gpg-key']['id'], gpg_key['id'])
                 self.assertEqual(new_repo['gpg-key']['name'], gpg_key['name'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_publish_via_http(self):
         """Create repository published via http
@@ -572,7 +565,6 @@ class RepositoryTestCase(CLITestCase):
                 repo = self._make_repository({'publish-via-http': use_http})
                 self.assertEqual(repo['publish-via-http'], u'yes')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_publish_via_https(self):
         """Create repository not published via http
@@ -588,7 +580,6 @@ class RepositoryTestCase(CLITestCase):
                 repo = self._make_repository({'publish-via-http': use_http})
                 self.assertEqual(repo['publish-via-http'], u'no')
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_yum_repo_with_checksum_type(self):
@@ -612,7 +603,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(repository['content-type'], content_type)
                 self.assertEqual(repository['checksum-type'], checksum_type)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_docker_repo_with_upstream_name(self):
         """Create a Docker repository with upstream name.
@@ -636,7 +626,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertEqual(new_repo['content-type'], content_type)
         self.assertEqual(new_repo['name'], u'busybox')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_docker_repo_with_name(self):
         """Create a Docker repository with a random name.
@@ -820,7 +809,6 @@ class RepositoryTestCase(CLITestCase):
                         u'download-policy': u'on_demand'
                     })
 
-    @run_only_on('sat')
     @tier1
     def test_positive_synchronize_yum_repo(self):
         """Check if repository can be created and synced
@@ -847,7 +835,6 @@ class RepositoryTestCase(CLITestCase):
                 new_repo = Repository.info({'id': new_repo['id']})
                 self.assertEqual(new_repo['sync']['status'], 'Success')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_synchronize_file_repo(self):
         """Check if repository can be created and synced
@@ -876,7 +863,6 @@ class RepositoryTestCase(CLITestCase):
             CUSTOM_FILE_REPO_FILES_COUNT
         )
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_synchronize_auth_yum_repo(self):
@@ -911,7 +897,6 @@ class RepositoryTestCase(CLITestCase):
                 new_repo = Repository.info({'id': new_repo['id']})
                 self.assertEqual(new_repo['sync']['status'], 'Success')
 
-    @run_only_on('sat')
     @tier2
     def test_negative_synchronize_auth_yum_repo(self):
         """Check if secured repo fails to synchronize with invalid credentials
@@ -955,7 +940,6 @@ class RepositoryTestCase(CLITestCase):
                         ''.join(response.stderr)
                     )
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_synchronize_auth_puppet_repo(self):
@@ -988,7 +972,6 @@ class RepositoryTestCase(CLITestCase):
                 new_repo = Repository.info({'id': new_repo['id']})
                 self.assertEqual(new_repo['sync']['status'], 'Success')
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_synchronize_docker_repo(self):
@@ -1013,7 +996,6 @@ class RepositoryTestCase(CLITestCase):
         new_repo = Repository.info({'id': new_repo['id']})
         self.assertEqual(new_repo['sync']['status'], 'Success')
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_synchronize_docker_repo_with_tags_whitelist(self):
@@ -1035,7 +1017,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertIn(tags, repo['container-image-tags-filter'])
         self.assertEqual(int(repo['content-counts']['container-image-tags']), 1)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_synchronize_docker_repo_set_tags_later(self):
         """Verify that adding tags whitelist and re-syncing after
@@ -1067,7 +1048,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertGreaterEqual(int(repo['content-counts']
                                     ['container-image-tags']), 2)
 
-    @run_only_on('sat')
     @tier2
     def test_negative_synchronize_docker_repo_with_mix_valid_invalid_tags(self):
         """Set tags whitelist to contain both valid and invalid (non-existing)
@@ -1089,7 +1069,6 @@ class RepositoryTestCase(CLITestCase):
         [self.assertIn(tag, repo['container-image-tags-filter']) for tag in tags]
         self.assertEqual(int(repo['content-counts']['container-image-tags']), 1)
 
-    @run_only_on('sat')
     @tier2
     def test_negative_synchronize_docker_repo_with_invalid_tags(self):
         """Set tags whitelist to contain only invalid (non-existing)
@@ -1111,7 +1090,6 @@ class RepositoryTestCase(CLITestCase):
         [self.assertIn(tag, repo['container-image-tags-filter']) for tag in tags]
         self.assertEqual(int(repo['content-counts']['container-image-tags']), 0)
 
-    @run_only_on('sat')
     @tier2
     def test_positive_resynchronize_rpm_repo(self):
         """Check that repository content is resynced after packages were
@@ -1148,7 +1126,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertEqual(repo['sync']['status'], 'Success')
         self.assertEqual(repo['content-counts']['packages'], '32')
 
-    @run_only_on('sat')
     @tier2
     def test_positive_resynchronize_puppet_repo(self):
         """Check that repository content is resynced after puppet modules
@@ -1185,7 +1162,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertEqual(repo['sync']['status'], 'Success')
         self.assertEqual(repo['content-counts']['puppet-modules'], '2')
 
-    @run_only_on('sat')
     @tier2
     def test_positive_synchronize_rpm_repo_ignore_content(self):
         """Synchronize yum repository with ignore content setting
@@ -1271,7 +1247,6 @@ class RepositoryTestCase(CLITestCase):
         self.assertGreaterEqual(len(result.stdout), 4,
                                 'content not synced correctly')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_url(self):
         """Update the original url for a repository
@@ -1302,7 +1277,6 @@ class RepositoryTestCase(CLITestCase):
                 result = Repository.info({'id': new_repo['id']})
                 self.assertEqual(result['url'], url)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_auth_url_with_special_characters(self):
         """Verify that repository URL credentials cannot be updated to contain
@@ -1333,7 +1307,6 @@ class RepositoryTestCase(CLITestCase):
                 result = Repository.info({'id': new_repo['id']})
                 self.assertEqual(result['url'], new_repo['url'])
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_auth_url_too_long(self):
         """Update the original url for a repository to value which is too long
@@ -1363,7 +1336,6 @@ class RepositoryTestCase(CLITestCase):
                 result = Repository.info({'id': new_repo['id']})
                 self.assertEqual(result['url'], new_repo['url'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_gpg_key(self):
         """Update the original gpg key
@@ -1404,7 +1376,6 @@ class RepositoryTestCase(CLITestCase):
         result = Repository.info({'id': new_repo['id']})
         self.assertEqual(result['mirror-on-sync'], 'yes')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_publish_method(self):
         """Update the original publishing method
@@ -1425,7 +1396,6 @@ class RepositoryTestCase(CLITestCase):
         result = Repository.info({'id': new_repo['id']})
         self.assertEqual(result['publish-via-http'], 'yes')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_checksum_type(self):
         """Create a YUM repository and update the checksum type
@@ -1449,7 +1419,6 @@ class RepositoryTestCase(CLITestCase):
                 self.assertEqual(result['checksum-type'], checksum_type)
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create_checksum_with_on_demand_policy(self):
         """Attempt to create repository with checksum and on_demand policy.
 
@@ -1463,7 +1432,6 @@ class RepositoryTestCase(CLITestCase):
             with self.assertRaises(CLIFactoryError):
                 self._make_repository({u'content-type': u'yum', u'checksum-type': checksum_type})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_by_id(self):
         """Check if repository can be created and deleted
@@ -1481,7 +1449,6 @@ class RepositoryTestCase(CLITestCase):
                 with self.assertRaises(CLIReturnCodeError):
                     Repository.info({u'id': new_repo['id']})
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_name(self):
@@ -1503,7 +1470,6 @@ class RepositoryTestCase(CLITestCase):
                 with self.assertRaises(CLIReturnCodeError):
                     Repository.info({u'id': new_repo['id']})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_rpm(self):
         """Check if rpm repository with packages can be deleted.
@@ -1525,7 +1491,6 @@ class RepositoryTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Repository.info({u'id': new_repo['id']})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_puppet(self):
         """Check if puppet repository with puppet modules can be deleted.
@@ -1550,7 +1515,6 @@ class RepositoryTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             Repository.info({u'id': new_repo['id']})
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_remove_content_by_repo_name(self):
@@ -1596,7 +1560,6 @@ class RepositoryTestCase(CLITestCase):
         repo = Repository.info({'id': repo['id']})
         self.assertEqual(repo['content-counts']['packages'], '0')
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_remove_content_rpm(self):
@@ -1628,7 +1591,6 @@ class RepositoryTestCase(CLITestCase):
         repo = Repository.info({'id': repo['id']})
         self.assertEqual(repo['content-counts']['packages'], '0')
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_remove_content_puppet(self):
@@ -1734,7 +1696,6 @@ class RepositoryTestCase(CLITestCase):
         )
 
     @skip_if_bug_open('bugzilla', 1436209)
-    @run_only_on('sat')
     @tier2
     def test_negative_restricted_user_cv_add_repository(self):
         """Attempt to add a product repository to content view with a

@@ -299,7 +299,6 @@ class SyncPlanTestCase(UITestCase):
                     session.nav.go_to_select_org(self.organization.name)
                     self.syncplan.delete(plan_name)
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_create_ostree_sync_plan(self):

@@ -184,7 +184,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
             'rpm -q {0}'.format(self.CUSTOM_PACKAGE_ERRATA_APPLIED))
         return True if result.return_code == 0 else False
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_id_and_org_id(self):
@@ -210,7 +209,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         for virtual_machine in self.virtual_machines:
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_id_and_org_name(self):
@@ -236,7 +234,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         for virtual_machine in self.virtual_machines:
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_id_and_org_label(self):
@@ -262,7 +259,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         for virtual_machine in self.virtual_machines:
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_name_and_org_id(self):
@@ -288,7 +284,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         for virtual_machine in self.virtual_machines:
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_name_and_org_name(self):
@@ -314,7 +309,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         for virtual_machine in self.virtual_machines:
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1457977)
     @tier3
     def test_positive_install_by_hc_name_and_org_label(self):
@@ -341,7 +335,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
             self.assertTrue(self._is_errata_package_installed(virtual_machine))
 
     @tier3
-    @run_only_on('sat')
     def test_negative_install_by_hc_id_without_errata_info(self):
         """Attempt to install an erratum in a hc using hc-id and not
         specifying the erratum info
@@ -368,7 +361,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         )
 
     @tier3
-    @run_only_on('sat')
     def test_negative_install_by_hc_name_without_errata_info(self):
         """Attempt to install an erratum in a hc using hc-name and not
         specifying the erratum info
@@ -395,7 +387,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         )
 
     @tier3
-    @run_only_on('sat')
     def test_negative_install_without_hc_info(self):
         """Attempt to install an erratum in a hc by not specifying hc
         info
@@ -418,7 +409,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
             })
 
     @tier3
-    @run_only_on('sat')
     def test_negative_install_by_hc_id_without_org_info(self):
         """Attempt to install an erratum in a hc using hc-id and not
         specifying org info
@@ -444,7 +434,6 @@ class HostCollectionErrataInstallTestCase(CLITestCase):
         )
 
     @tier3
-    @run_only_on('sat')
     def test_negative_install_by_hc_name_without_org_info(self):
         """Attempt to install an erratum in a hc without specifying org
         info
@@ -1645,7 +1634,6 @@ class ErrataTestCase(CLITestCase):
         )
 
     @run_in_one_thread
-    @run_only_on('sat')
     @tier3
     def test_positive_list_filter_by_cve(self):
         """Filter errata by CVE

@@ -42,7 +42,6 @@ class LifeCycleEnvironmentTestCase(UITestCase):
         super(LifeCycleEnvironmentTestCase, cls).setUpClass()
         cls.organization = entities.Organization().create()
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create(self):
         """Create content environment with minimal input parameters
@@ -65,7 +64,6 @@ class LifeCycleEnvironmentTestCase(UITestCase):
                     self.assertIsNotNone(
                         self.lifecycleenvironment.search(name))
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete(self):
@@ -89,7 +87,6 @@ class LifeCycleEnvironmentTestCase(UITestCase):
             self.lifecycleenvironment.delete(name)
             self.assertIsNone(self.lifecycleenvironment.search(name))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update(self):
         """Create Content Environment and update it

@@ -53,7 +53,6 @@ class TailoringFilesTestCase(CLITestCase):
             remote_file="/tmp/{0}".format(cls.file_name)
         )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create(self):
         """Create new Tailoring Files using different values types as name
@@ -75,7 +74,6 @@ class TailoringFilesTestCase(CLITestCase):
                     'scap-file': '/tmp/{0}'.format(self.file_name)})
                 self.assertEqual(tailoring_file['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_space(self):
         """Create tailoring files with space in name
@@ -96,7 +94,6 @@ class TailoringFilesTestCase(CLITestCase):
             'scap-file': '/tmp/{0}'.format(self.file_name)})
         self.assertEqual(tailoring_file['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_get_info_of_tailoring_file(self):
         """Get information of tailoring file
@@ -122,7 +119,6 @@ class TailoringFilesTestCase(CLITestCase):
         result = TailoringFiles.info({'name': name})
         self.assertEqual(result['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_tailoring_file(self):
         """List all created tailoring files
@@ -148,7 +144,6 @@ class TailoringFilesTestCase(CLITestCase):
         self.assertIn(
              name, [tailoringfile['name'] for tailoringfile in result])
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_invalid_file(self):
         """Create Tailoring files with invalid file
@@ -174,7 +169,6 @@ class TailoringFilesTestCase(CLITestCase):
                 'scap-file': '/tmp/{0}'.format(SNIPPET_DATA_FILE)
             })
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_invalid_name(self):
         """Create Tailoring files with invalid name
@@ -196,7 +190,6 @@ class TailoringFilesTestCase(CLITestCase):
                         'name': name,
                         'scap-file': '/tmp/{0}'.format(self.file_name)})
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_negative_associate_tailoring_file_with_different_scap(self):
@@ -217,7 +210,6 @@ class TailoringFilesTestCase(CLITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_download_tailoring_file(self):
 
@@ -249,7 +241,6 @@ class TailoringFilesTestCase(CLITestCase):
         self.assertEqual(result.return_code, 0)
         self.assertIn(file_path, result.stdout)
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_tailoring_file(self):
@@ -272,7 +263,6 @@ class TailoringFilesTestCase(CLITestCase):
         with self.assertRaises(CLIReturnCodeError):
             TailoringFiles.info({'id': tailoring_file['id']})
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     @upgrade
@@ -300,7 +290,6 @@ class TailoringFilesTestCase(CLITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     @upgrade
@@ -328,7 +317,6 @@ class TailoringFilesTestCase(CLITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier4
     @upgrade

@@ -230,7 +230,6 @@ class IncrementalUpdateTestCase(TestCase):
             query={'errata_restrict_applicable': True}
         )
 
-    @run_only_on('sat')
     @tier4
     @upgrade
     def test_positive_noapply_api(self):
@@ -280,7 +279,6 @@ class IncrementalUpdateTestCase(TestCase):
             len(cv_versions)
         )
 
-    @run_only_on('sat')
     @tier4
     @upgrade
     def test_positive_noapply_cli(self):

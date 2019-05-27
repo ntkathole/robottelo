@@ -591,7 +591,6 @@ class EntityReadTestCase(APITestCase):
         )
 
     @tier1
-    @run_only_on('sat')
     def test_positive_osparameter_read(self):
         """Create an OperatingSystemParameter and get it using
         ``nailgun.entity_mixins.EntityReadMixin.read``.
@@ -616,7 +615,6 @@ class EntityReadTestCase(APITestCase):
         )
 
     @tier1
-    @run_only_on('sat')
     def test_positive_permission_read(self):
         """Create an Permission entity and get it using
         ``nailgun.entity_mixins.EntityReadMixin.read``.

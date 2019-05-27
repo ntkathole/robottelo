@@ -53,7 +53,6 @@ class PuppetClassTestCase(CLITestCase):
             'environment': cls.env['name'],
         })
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_list_smart_class_parameters(self):
@@ -67,7 +66,6 @@ class PuppetClassTestCase(CLITestCase):
             u'puppet-class': self.puppet['name']})
         self.assertGreater(len(class_sc_parameters), 0)
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_list_smart_variables(self):

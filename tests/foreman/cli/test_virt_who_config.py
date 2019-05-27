@@ -36,7 +36,6 @@ class VirtWhoConfigTestCase(CLITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_cli_deploy_cli(self):
@@ -54,7 +53,6 @@ class VirtWhoConfigTestCase(CLITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_virt_who_user_login(self):

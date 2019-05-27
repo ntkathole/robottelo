@@ -161,7 +161,6 @@ class SmartClassParametersTestCase(APITestCase):
             raise Exception("Not enough smart class parameters. Please "
                             "update puppet module.")
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_list_parameters_by_host_id(self):
@@ -188,7 +187,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier2
     def test_positive_list_parameters_by_hostgroup_id(self):
         """List all the parameters included in specific HostGroup by id.
@@ -210,7 +208,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_parameters_by_puppetclass_id(self):
         """List all the parameters for specific puppet class by id.
@@ -226,7 +223,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_with_non_admin_user(self):
         """List all the parameters for specific puppet class by id.
@@ -270,7 +266,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_import_twice_list_parameters_by_puppetclass_id(self):
         """Import same puppet class twice (e.g. into different Content Views)
@@ -299,7 +294,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier2
     def test_positive_list_parameters_by_environment_id(self):
         """List all the parameters for specific environment by id.
@@ -319,7 +313,6 @@ class SmartClassParametersTestCase(APITestCase):
         # Check that only unique results are returned
         self.assertEqual(len(result), len({scp['id'] for scp in result}))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_override(self):
         """Override the Default Parameter value.
@@ -344,7 +337,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.override, True)
         self.assertEqual(sc_param.default_value, value)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_override(self):
         """Override the Default Parameter value - override Unchecked.
@@ -370,7 +362,6 @@ class SmartClassParametersTestCase(APITestCase):
             "Validation failed: Override must be true to edit the parameter"
         )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_puppet_default(self):
         """On Override, Set Puppet Default Value.
@@ -392,7 +383,6 @@ class SmartClassParametersTestCase(APITestCase):
         sc_param.update(['override', 'use_puppet_default'])
         self.assertEqual(sc_param.read().use_puppet_default, True)
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_update_parameter_type(self):
@@ -440,7 +430,6 @@ class SmartClassParametersTestCase(APITestCase):
                 else:
                     self.assertEqual(sc_param.default_value, data['value'])
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_parameter_type(self):
         """Negative Parameter Update for parameter types - Invalid Value.
@@ -478,7 +467,6 @@ class SmartClassParametersTestCase(APITestCase):
                     "Validation failed: Default value is invalid"
                 )
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_validate_puppet_default_value(self):
@@ -497,7 +485,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_default_value_required_check(self):
         """No error raised for non-empty default Value - Required check.
@@ -526,7 +513,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.required, True)
         self.assertEqual(sc_param.default_value, True)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_value_required_check(self):
         """Error is raised for blank matcher Value - Required check.
@@ -558,7 +544,6 @@ class SmartClassParametersTestCase(APITestCase):
             "Validation failed: Value can't be blank"
         )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_matcher_value_required_check(self):
         """Error is not raised for matcher Value - Required checkbox.
@@ -590,7 +575,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.required, True)
         self.assertEqual(sc_param.override_values[0]['value'], value)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_default_value_with_regex(self):
         """Error is raised for default value not matching with regex.
@@ -625,7 +609,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertNotEqual(sc_param.read().default_value, value)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_default_value_with_regex(self):
         """Error is not raised for default value matching with regex.
@@ -657,7 +640,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.validator_type, 'regexp')
         self.assertEqual(sc_param.validator_rule, '[0-9]')
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_value_with_regex(self):
         """Error is raised for matcher value not matching with regex.
@@ -700,7 +682,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertNotEqual(sc_param.read().default_value, value)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_matcher_value_with_regex(self):
         """Error is not raised for matcher value matching with regex.
@@ -734,7 +715,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertEqual(sc_param.read().default_value, value)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_default_value_with_list(self):
         """Error is raised for default value not in list.
@@ -771,7 +751,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertNotEqual(sc_param.read().default_value, value)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_default_value_with_list(self):
         """Error is not raised for default value in list.
@@ -814,7 +793,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.validator_type, 'list')
         self.assertEqual(sc_param.validator_rule, values_list_str)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_value_with_list(self):
         """Error is raised for matcher value not in list.
@@ -855,7 +833,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertNotEqual(sc_param.read().default_value, 50)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_matcher_value_with_list(self):
         """Error is not raised for matcher value in list.
@@ -887,7 +864,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertEqual(sc_param.read().default_value, 'example')
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_value_with_default_type(self):
         """Error is raised for matcher value not of default type.
@@ -921,7 +897,6 @@ class SmartClassParametersTestCase(APITestCase):
             "Validation failed: Value is invalid"
         )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_validate_matcher_value_with_default_type(self):
         """No error for matcher value of default type.
@@ -953,7 +928,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(
             sc_param.override_values[0]['match'], 'domain=example.com')
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_and_default_value(self):
         """Error for invalid default and matcher value is raised both at a time.
@@ -988,7 +962,6 @@ class SmartClassParametersTestCase(APITestCase):
             "Lookup values is invalid"
         )
 
-    @run_only_on('sat')
     @tier1
     def test_negative_validate_matcher_non_existing_attribute(self):
         """Error while creating matcher for Non Existing Attribute.
@@ -1017,7 +990,6 @@ class SmartClassParametersTestCase(APITestCase):
             "an existing host group"
         )
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_matcher(self):
@@ -1050,7 +1022,6 @@ class SmartClassParametersTestCase(APITestCase):
             sc_param.override_values[0]['match'], 'is_virtual=true')
         self.assertEqual(sc_param.override_values[0]['value'], value)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_matcher_puppet_default_value(self):
         """Create matcher for attribute in parameter where
@@ -1086,7 +1057,6 @@ class SmartClassParametersTestCase(APITestCase):
             sc_param.override_values[0]['match'], 'domain=example.com')
         self.assertEqual(sc_param.override_values[0]['value'], value)
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_matcher_attribute_priority(self):
@@ -1112,7 +1082,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_matcher_attribute_priority(self):
@@ -1142,7 +1111,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     @upgrade
@@ -1176,7 +1144,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_matcher_merge_override(self):
@@ -1210,7 +1177,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_matcher_merge_override_puppet_value(self):
@@ -1246,7 +1212,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     @upgrade
@@ -1281,7 +1246,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_matcher_merge_default(self):
@@ -1316,7 +1280,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_matcher_merge_puppet_default(self):
@@ -1350,7 +1313,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     @upgrade
@@ -1385,7 +1347,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_matcher_avoid_duplicate(self):
@@ -1418,7 +1379,6 @@ class SmartClassParametersTestCase(APITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @tier1
     def test_positive_enable_merge_overrides_default_checkboxes(self):
         """Enable Merge Overrides, Merge Default checkbox for supported types.
@@ -1450,7 +1410,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.merge_overrides, True)
         self.assertEqual(sc_param.merge_default, True)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_enable_merge_overrides_default_checkboxes(self):
         """Disable Merge Overrides, Merge Default checkboxes for non supported types.
@@ -1498,7 +1457,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(sc_param.merge_overrides, False)
         self.assertEqual(sc_param.merge_default, False)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_enable_avoid_duplicates_checkbox(self):
         """Enable Avoid duplicates checkbox for supported type- array.
@@ -1530,7 +1488,6 @@ class SmartClassParametersTestCase(APITestCase):
         ])
         self.assertEqual(sc_param.read().avoid_duplicates, True)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_enable_avoid_duplicates_checkbox(self):
         """Disable Avoid duplicates checkbox for non supported types.
@@ -1567,7 +1524,6 @@ class SmartClassParametersTestCase(APITestCase):
         )
         self.assertEqual(sc_param.read().avoid_duplicates, False)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_remove_matcher(self):
         """Removal of matcher from parameter.
@@ -1597,7 +1553,6 @@ class SmartClassParametersTestCase(APITestCase):
         override.delete()
         self.assertEqual(len(sc_param.read().override_values), 0)
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1374253)
     @tier1
     def test_positive_impact_parameter_delete_attribute(self):
@@ -1650,7 +1605,6 @@ class SmartClassParametersTestCase(APITestCase):
             data={'puppetclass_id': self.puppet_class.id})
         self.assertEqual(len(sc_param.read().override_values), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_hide_parameter_default_value(self):
         """Hide the default value of parameter.
@@ -1676,7 +1630,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(getattr(sc_param, 'hidden_value?'), True)
         self.assertEqual(sc_param.default_value, u'*****')
 
-    @run_only_on('sat')
     @tier1
     def test_positive_unhide_parameter_default_value(self):
         """Unhide the default value of parameter.
@@ -1706,7 +1659,6 @@ class SmartClassParametersTestCase(APITestCase):
         sc_param = sc_param.read()
         self.assertEqual(getattr(sc_param, 'hidden_value?'), False)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_hidden_value_in_parameter(self):
         """Update the hidden default value of parameter.
@@ -1743,7 +1695,6 @@ class SmartClassParametersTestCase(APITestCase):
         self.assertEqual(getattr(sc_param, 'hidden_value?'), True)
         self.assertEqual(sc_param.default_value, new_value)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_hide_empty_default_value(self):
         """Hiding the empty default value.

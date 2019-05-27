@@ -26,7 +26,6 @@ from robottelo.ui.session import Session
 class PuppetClassTestCase(UITestCase):
     """Implements puppet classes tests in UI."""
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_description(self):
         """Create new puppet-class and update its description to a valid
@@ -56,7 +55,6 @@ class PuppetClassTestCase(UITestCase):
                             class_name, param_name)
                     )
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete(self):

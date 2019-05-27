@@ -125,7 +125,6 @@ class HostGroupTestCase(CLITestCase):
                 with self.assertRaises(CLIReturnCodeError):
                     HostGroup.create({'name': name})
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_env(self):
         """Check if hostgroup with environment can be created
@@ -141,7 +140,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = make_hostgroup({'environment-id': environment['id']})
         self.assertEqual(environment['name'], hostgroup['puppet-environment'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_loc(self):
         """Check if hostgroup with location can be created
@@ -157,7 +155,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = make_hostgroup({'location-ids': location['id']})
         self.assertIn(location['name'], hostgroup['locations'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_os(self):
         """Check if hostgroup with operating system can be created
@@ -175,7 +172,6 @@ class HostGroupTestCase(CLITestCase):
         self.assertEqual(hostgroup['operating-system']['operating-system'],
                          os['title'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_org(self):
         """Check if hostgroup with organization can be created
@@ -212,7 +208,6 @@ class HostGroupTestCase(CLITestCase):
             set(hostgroup['organizations'])
         )
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_puppet_ca_proxy(self):
         """Check if hostgroup with puppet CA proxy server can be created
@@ -231,7 +226,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = make_hostgroup({'puppet-ca-proxy': puppet_proxy['name']})
         self.assertEqual(puppet_proxy['name'], hostgroup['puppet-ca-proxy'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_puppet_proxy(self):
         """Check if hostgroup with puppet proxy server can be created
@@ -291,7 +285,6 @@ class HostGroupTestCase(CLITestCase):
             self.puppet_classes[0]['name'], hostgroup['puppetclasses'])
 
     @skip_if_bug_open('bugzilla', 1354544)
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_architecture(self):
         """Check if hostgroup with architecture can be created
@@ -309,7 +302,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = make_hostgroup({'architecture': arch})
         self.assertEqual(arch, hostgroup['architecture'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_domain(self):
         """Check if hostgroup with domain can be created
@@ -324,7 +316,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = make_hostgroup({'domain-id': domain['id']})
         self.assertEqual(domain['name'], hostgroup['network']['domain'])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_lifecycle_environment(self):
         """Check if hostgroup with lifecyle environment can be created
@@ -373,7 +364,6 @@ class HostGroupTestCase(CLITestCase):
             set(hostgroup['organizations'])
         )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_create_with_multiple_entities_name(self):
         """Check if hostgroup with multiple options name can be created
@@ -485,7 +475,6 @@ class HostGroupTestCase(CLITestCase):
             lce['name'], hostgroup['lifecycle-environment']['name'])
         self.assertEqual(proxy['name'], hostgroup['content-source']['name'])
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_create_with_multiple_entities_ids(self):
@@ -597,7 +586,6 @@ class HostGroupTestCase(CLITestCase):
             os['id'], hostgroup['operating-system']['operating-system']['id'])
 
     @skip_if_bug_open('bugzilla', 1354568)
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_subnet_id(self):
         """Check if hostgroup with invalid subnet id raises proper error
@@ -622,7 +610,6 @@ class HostGroupTestCase(CLITestCase):
         )
 
     @skip_if_bug_open('bugzilla', 1354568)
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_domain_id(self):
         """Check if hostgroup with invalid domain id raises proper error
@@ -647,7 +634,6 @@ class HostGroupTestCase(CLITestCase):
         )
 
     @skip_if_bug_open('bugzilla', 1354568)
-    @run_only_on('sat')
     @tier1
     def test_negative_create_with_architecture_id(self):
         """Check if hostgroup with invalid architecture id raises proper error
@@ -714,7 +700,6 @@ class HostGroupTestCase(CLITestCase):
                 'organization-ids': self.org['id'],
             })
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_create_with_synced_content(self):
@@ -888,7 +873,6 @@ class HostGroupTestCase(CLITestCase):
                 hostgroup = HostGroup.info({'id': hostgroup['id']})
                 self.assertEqual(hostgroup['name'], new_name)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_name(self):
         """Create HostGroup then fail to update its name
@@ -982,7 +966,6 @@ class HostGroupTestCase(CLITestCase):
         hostgroup = HostGroup.info({'id': hostgroup['id']})
         self.assertEqual(set(puppet_classes), set(hostgroup['puppetclasses']))
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_id(self):
@@ -1002,7 +985,6 @@ class HostGroupTestCase(CLITestCase):
                 with self.assertRaises(CLIReturnCodeError):
                     HostGroup.info({'id': hostgroup['id']})
 
-    @run_only_on('sat')
     @tier1
     def test_negative_delete_by_id(self):
         """Create HostGroup then delete it by wrong ID

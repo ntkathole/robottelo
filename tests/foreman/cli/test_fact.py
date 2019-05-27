@@ -24,7 +24,6 @@ from robottelo.test import CLITestCase
 class FactTestCase(CLITestCase):
     """Fact related tests."""
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_list_by_name(self):
@@ -48,7 +47,6 @@ class FactTestCase(CLITestCase):
                 facts = Fact().list(args)
                 self.assertEqual(facts[0]['fact'], fact)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_list_by_name(self):
         """Test Fact List failure

@@ -124,7 +124,6 @@ class ContentAccessTestCase(APITestCase):
         call_entity_method_with_timeout(content_view.publish, timeout=1500)
         cls.content_view = content_view.read()
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_list_hosts_applicable(self):

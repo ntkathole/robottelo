@@ -335,7 +335,6 @@ class LibvirtHostTestCase(UITestCase):
             ptable=cls.ptable.id,
         ).create()
 
-    @run_only_on('sat')
     @tier3
     def test_positive_provision_end_to_end(self):
         """Provision Host on libvirt compute resource
@@ -380,7 +379,6 @@ class LibvirtHostTestCase(UITestCase):
                     break
             self.assertEqual(result['Build'], 'Installed')
 
-    @run_only_on('sat')
     @tier3
     def test_positive_delete_libvirt(self):
         """Create a new Host on libvirt compute resource and delete it
@@ -440,7 +438,6 @@ class LibvirtHostTestCase(UITestCase):
 class HostTestCase(UITestCase):
     """Implements Host tests in UI"""
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_create_baremetal_with_bios(self):
@@ -461,7 +458,6 @@ class HostTestCase(UITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     @upgrade
@@ -483,7 +479,6 @@ class HostTestCase(UITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_negative_create_with_incompatible_pxe_loader(self):
@@ -513,7 +508,6 @@ class HostTestCase(UITestCase):
         :CaseLevel: System
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_sort_by_name(self):
         """Create some Host entities and sort them by name ascendingly and then
@@ -563,7 +557,6 @@ class HostTestCase(UITestCase):
                 sorted(name_list, reverse=True)
             )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_sort_by_os(self):
         """Create some Host entities and sort them by operation system
@@ -615,7 +608,6 @@ class HostTestCase(UITestCase):
                 sorted(name_list, key=six.text_type.lower, reverse=True)
             )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_sort_by_env(self):
         """Create some Host entities and sort them by environment
@@ -663,7 +655,6 @@ class HostTestCase(UITestCase):
                 sorted(name_list, key=six.text_type.lower, reverse=True)
             )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_sort_by_model(self):
         """Create some Host entities and sort them by hardware model
@@ -712,7 +703,6 @@ class HostTestCase(UITestCase):
                 sorted(name_list, key=six.text_type.lower, reverse=True)
             )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_sort_by_hostgroup(self):
         """Create some Host entities and sort them by host group ascendingly

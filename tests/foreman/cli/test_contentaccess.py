@@ -158,7 +158,6 @@ class ContentAccessTestCase(CLITestCase):
             install_katello_agent=True,
         )
 
-    @run_only_on('sat')
     @tier2
     def test_positive_list_installable_updates(self):
         """Ensure packages applicability is functioning properly.
@@ -205,7 +204,6 @@ class ContentAccessTestCase(CLITestCase):
                 [package['filename'] for package in applicable_packages]
             )
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_erratum_installable(self):
@@ -248,7 +246,6 @@ class ContentAccessTestCase(CLITestCase):
             self.assertEqual(len(erratum), 1)
             self.assertEqual(erratum[0]['installable'], 'true')
 
-    @run_only_on('sat')
     @tier2
     def test_negative_rct_not_shows_golden_ticket_enabled(self):
         """Assert restricted manifest has no Golden Ticket enabled .
@@ -282,7 +279,6 @@ class ContentAccessTestCase(CLITestCase):
             '\n'.join(result.stdout)
         )
 
-    @run_only_on('sat')
     @tier2
     @upgrade
     def test_positive_rct_shows_golden_ticket_enabled(self):

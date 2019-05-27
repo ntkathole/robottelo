@@ -51,7 +51,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         cls.aws_security_groups = settings.ec2.security_groups
         cls.aws_managed_ip = settings.ec2.managed_ip
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_ec2_with_name(self):
         """Create a new ec2 compute resource with valid name
@@ -88,7 +87,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
             )
             self.assertIsNotNone(self.compute_resource.search(name))
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_create_ec2_with_description(self):
@@ -111,7 +109,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_negative_create_ec2_with_invalid_name(self):
@@ -135,7 +132,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier1
     def test_positive_update_ec2_name(self):
@@ -160,7 +156,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseImportance: Critical
         """
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1451626)
     @tier1
     def test_positive_delete_ec2(self):
@@ -203,7 +198,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
             self.compute_resource.delete(name, dropdown_present=True)
             self.assertIsNone(self.compute_resource.search(name))
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_add_image_ec2_with_name(self):
@@ -228,7 +222,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
          """
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_negative_add_image_ec2_with_invalid_name(self):
@@ -253,7 +246,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @tier2
     def test_positive_access_ec2_with_default_profile(self):
         """Associate default (3-Large) compute profile to ec2 compute
@@ -295,7 +287,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
                 )
             )
 
-    @run_only_on('sat')
     @stubbed()
     @tier2
     def test_positive_retrieve_ec2_vm_list(self):
@@ -315,7 +306,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_host_with_image(self):
@@ -357,7 +347,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_with_compute_profile(self):
@@ -386,7 +375,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     def test_positive_provision_ec2_with_custom_compute_settings(self):
@@ -416,7 +404,6 @@ class Ec2ComputeResourceTestCase(UITestCase):
         :CaseAutomation: notautomated
         """
 
-    @run_only_on('sat')
     @stubbed()
     @tier3
     @upgrade

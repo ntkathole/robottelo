@@ -63,7 +63,6 @@ class GPGKey(UITestCase):
 
     # Positive Create
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_via_import(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -87,7 +86,6 @@ class GPGKey(UITestCase):
                     )
                     self.assertIsNotNone(self.gpgkey.search(name))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_via_paste(self):
         """Create gpg key with valid name and valid gpg key text via
@@ -112,7 +110,6 @@ class GPGKey(UITestCase):
 
     # Negative Create
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_via_import_and_same_name(self):
         """Create gpg key with valid name and valid gpg key via file import
@@ -139,7 +136,6 @@ class GPGKey(UITestCase):
                 self.gpgkey.wait_until_element(common_locators['alert.error'])
             )
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_negative_create_via_paste_and_same_name(self):
@@ -167,7 +163,6 @@ class GPGKey(UITestCase):
                 self.gpgkey.wait_until_element(common_locators['alert.error'])
             )
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_without_content(self):
         """Create gpg key with valid name and no gpg key
@@ -186,7 +181,6 @@ class GPGKey(UITestCase):
             )
             self.assertIsNone(self.gpgkey.search(name))
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_via_import_and_invalid_name(self):
         """Create gpg key with invalid name and valid gpg key via file import
@@ -213,7 +207,6 @@ class GPGKey(UITestCase):
                     )
                     self.assertIsNone(self.gpgkey.search(name))
 
-    @run_only_on('sat')
     @tier1
     def test_negative_create_via_paste_and_invalid_name(self):
         """Create gpg key with invalid name and valid gpg key text via cut and
@@ -240,7 +233,6 @@ class GPGKey(UITestCase):
                     )
                     self.assertIsNone(self.gpgkey.search(name))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_search_scoped(self):
         """Search for gpgkey by organization id parameter
@@ -272,7 +264,6 @@ class GPGKey(UITestCase):
 
     # Positive Delete
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_for_imported_content(self):
@@ -298,7 +289,6 @@ class GPGKey(UITestCase):
                     self.assertIsNotNone(self.gpgkey.search(name))
                     self.gpgkey.delete(name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_delete_for_pasted_content(self):
         """Create gpg key with valid name and valid gpg key text via cut and
@@ -324,7 +314,6 @@ class GPGKey(UITestCase):
 
     # Positive Update
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_name_for_imported_content(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -352,7 +341,6 @@ class GPGKey(UITestCase):
                 common_locators['alert.success_sub_form']))
             self.assertIsNotNone(self.gpgkey.search(new_name))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_file_for_imported_content(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -379,7 +367,6 @@ class GPGKey(UITestCase):
             self.assertIsNotNone(self.gpgkey.wait_until_element(
                 common_locators['alert.success_sub_form']))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_name_for_pasted_content(self):
         """Create gpg key with valid name and valid gpg key text via
@@ -406,7 +393,6 @@ class GPGKey(UITestCase):
                 common_locators['alert.success_sub_form']))
             self.assertIsNotNone(self.gpgkey.search(new_name))
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_file_for_pasted_content(self):
         """Create gpg key with valid name and valid gpg key text via
@@ -434,7 +420,6 @@ class GPGKey(UITestCase):
 
     # Negative Update
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_name_for_imported_content(self):
         """Create gpg key with valid name and valid gpg key via file
@@ -464,7 +449,6 @@ class GPGKey(UITestCase):
                     ))
                     self.assertIsNone(self.gpgkey.search(new_name))
 
-    @run_only_on('sat')
     @skip_if_not_set('clients')
     @tier3
     @upgrade
@@ -583,7 +567,6 @@ class GPGKey(UITestCase):
             self.assertEqual(result.return_code, 0)
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_consume_content_using_repos(self):
         """Hosts can install packages using gpg key associated with
@@ -599,7 +582,6 @@ class GPGKey(UITestCase):
         """
 
     @stubbed()
-    @run_only_on('sat')
     @tier3
     def test_positive_consume_content_using_repos_and_different_keys(self):
         """Hosts can install packages using different gpg keys
@@ -615,7 +597,6 @@ class GPGKey(UITestCase):
         """
 
     @stubbed()
-    @run_only_on('sat')
     @tier1
     def test_positive_info(self):
         """Create single gpg key and get its info
@@ -641,7 +622,6 @@ class GPGKeyProductAssociateTestCase(UITestCase):
         cls.key_path = get_data_file(VALID_GPG_KEY_FILE)
         cls.organization = entities.Organization().create()
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1411800)
     @tier2
     def test_positive_add_product_and_search(self):
@@ -686,7 +666,6 @@ class GPGKeyProductAssociateTestCase(UITestCase):
                 locators['prd.title'] % product.name))
 
     @stubbed()
-    @run_only_on('sat')
     @tier2
     def test_positive_add_repos_using_repo_discovery(self):
         """Create gpg key with valid name and valid gpg key then

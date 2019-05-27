@@ -46,7 +46,6 @@ class ModelTestCase(CLITestCase):
                 model = make_model({'name': name})
                 self.assertEqual(model['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_vendor_class(self):
         """Check if Model can be created with specific vendor class
@@ -96,7 +95,6 @@ class ModelTestCase(CLITestCase):
                 model = Model.info({'id': model['id']})
                 self.assertEqual(model['name'], new_name)
 
-    @run_only_on('sat')
     @tier1
     def test_negative_update_name(self):
         """Create Model then fail to update its name
@@ -118,7 +116,6 @@ class ModelTestCase(CLITestCase):
                 result = Model.info({'id': model['id']})
                 self.assertEqual(model['name'], result['name'])
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_id(self):
@@ -138,7 +135,6 @@ class ModelTestCase(CLITestCase):
                 with self.assertRaises(CLIReturnCodeError):
                     Model.info({'id': model['id']})
 
-    @run_only_on('sat')
     @tier1
     def test_negative_delete_by_id(self):
         """Create Model then delete it by wrong ID

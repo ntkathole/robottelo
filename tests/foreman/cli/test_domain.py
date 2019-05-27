@@ -131,7 +131,6 @@ class DomainTestCase(CLITestCase):
     """Domain CLI tests"""
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_name_description(self):
         """Create domain with valid name and description
 
@@ -150,7 +149,6 @@ class DomainTestCase(CLITestCase):
                     domain['description'], options['description'])
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_loc(self):
         """Check if domain with location can be created
 
@@ -166,7 +164,6 @@ class DomainTestCase(CLITestCase):
         self.assertIn(location['name'], domain['locations'])
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_org(self):
         """Check if domain with organization can be created
 
@@ -182,7 +179,6 @@ class DomainTestCase(CLITestCase):
         self.assertIn(org['name'], domain['organizations'])
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create(self):
         """Create domain with invalid values
 
@@ -199,7 +195,6 @@ class DomainTestCase(CLITestCase):
                     make_domain(options)
 
     @tier2
-    @run_only_on('sat')
     def test_negative_create_with_invalid_dns_id(self):
         """Attempt to register a domain with invalid id
 
@@ -226,7 +221,6 @@ class DomainTestCase(CLITestCase):
         self.assertGreater(len(messages), 0)
 
     @tier1
-    @run_only_on('sat')
     def test_positive_update(self):
         """Update domain with valid values
 
@@ -250,7 +244,6 @@ class DomainTestCase(CLITestCase):
                     self.assertEqual(domain[key], val)
 
     @tier1
-    @run_only_on('sat')
     def test_negative_update(self):
         """Update domain with invalid values
 
@@ -272,7 +265,6 @@ class DomainTestCase(CLITestCase):
                     self.assertEqual(result[key], domain[key])
 
     @tier1
-    @run_only_on('sat')
     def test_positive_set_parameter(self):
         """Domain set-parameter with valid key and value
 
@@ -296,7 +288,6 @@ class DomainTestCase(CLITestCase):
                 self.assertDictEqual(parameter, domain['parameters'])
 
     @tier1
-    @run_only_on('sat')
     def test_negative_set_parameter(self):
         """Domain set-parameter with invalid values
 
@@ -319,7 +310,6 @@ class DomainTestCase(CLITestCase):
                 self.assertEqual(len(domain['parameters']), 0)
 
     @tier1
-    @run_only_on('sat')
     def test_positive_delete_by_id(self):
         """Create Domain with valid values then delete it
         by ID
@@ -338,7 +328,6 @@ class DomainTestCase(CLITestCase):
                     Domain.info({'id': domain['id']})
 
     @tier1
-    @run_only_on('sat')
     def test_negative_delete_by_id(self):
         """Create Domain then delete it by wrong ID
 
@@ -354,7 +343,6 @@ class DomainTestCase(CLITestCase):
                     Domain.delete({'id': entity_id})
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     def test_positive_delete_parameter(self):
         """Domain delete-parameter removes parameter

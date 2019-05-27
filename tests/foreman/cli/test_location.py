@@ -684,7 +684,6 @@ class LocationTestCase(CLITestCase):
                 'id': loc['id'],
             })
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1398695)
     @run_in_one_thread
     @tier2
@@ -708,7 +707,6 @@ class LocationTestCase(CLITestCase):
         loc = Location.info({'name': loc['name']})
         self.assertIn(proxy['name'], loc['smart-proxies'])
 
-    @run_only_on('sat')
     @run_in_one_thread
     @tier2
     @skip_if_bug_open('bugzilla', 1398695)
@@ -732,7 +730,6 @@ class LocationTestCase(CLITestCase):
         loc = Location.info({'name': loc['name']})
         self.assertIn(proxy['name'], loc['smart-proxies'])
 
-    @run_only_on('sat')
     @run_in_one_thread
     @tier2
     @skip_if_bug_open('bugzilla', 1398695)
@@ -760,7 +757,6 @@ class LocationTestCase(CLITestCase):
         loc = Location.info({'id': loc['id']})
         self.assertNotIn(proxy['name'], loc['smart-proxies'])
 
-    @run_only_on('sat')
     @run_in_one_thread
     @tier2
     @skip_if_bug_open('bugzilla', 1398695)

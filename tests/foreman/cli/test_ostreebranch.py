@@ -82,7 +82,6 @@ class OstreeBranchTestCase(CLITestCase):
     def get_user_credentials(cls):
         return cls.user['login'], cls.user['password']
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list(self):
         """List Ostree Branches
@@ -96,7 +95,6 @@ class OstreeBranchTestCase(CLITestCase):
         result = OstreeBranch.with_user(*self.get_user_credentials()).list()
         self.assertGreater(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_list_by_repo_id(self):
@@ -113,7 +111,6 @@ class OstreeBranchTestCase(CLITestCase):
         result = branch.list({'repository-id': self.ostree_repo['id']})
         self.assertGreater(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_by_product_id(self):
         """List Ostree branches by product id
@@ -128,7 +125,6 @@ class OstreeBranchTestCase(CLITestCase):
             {'product-id': self.product['id']})
         self.assertGreater(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_by_org_id(self):
         """List Ostree branches by org id
@@ -143,7 +139,6 @@ class OstreeBranchTestCase(CLITestCase):
             {'organization-id': self.org['id']})
         self.assertGreater(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_list_by_cv_id(self):
         """List Ostree branches by cv id
@@ -158,7 +153,6 @@ class OstreeBranchTestCase(CLITestCase):
             {'content-view-id': self.cv['id']})
         self.assertGreater(len(result), 0)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_info_by_id(self):
         """Get info for Ostree branch by id

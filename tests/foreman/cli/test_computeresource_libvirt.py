@@ -120,7 +120,6 @@ class ComputeResourceTestCase(CLITestCase):
 
     # pylint: disable=no-self-use
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_name(self):
         """Create Compute Resource
 
@@ -138,7 +137,6 @@ class ComputeResourceTestCase(CLITestCase):
         })
 
     @tier1
-    @run_only_on('sat')
     def test_positive_info(self):
         """Test Compute Resource Info
 
@@ -159,7 +157,6 @@ class ComputeResourceTestCase(CLITestCase):
         self.assertEquals(compute_resource['name'], name)
 
     @tier1
-    @run_only_on('sat')
     def test_positive_list(self):
         """Test Compute Resource List
 
@@ -181,7 +178,6 @@ class ComputeResourceTestCase(CLITestCase):
         result = ComputeResource.exists(search=('name', comp_res['name']))
         self.assertTrue(result)
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_delete_by_name(self):
@@ -204,7 +200,6 @@ class ComputeResourceTestCase(CLITestCase):
         self.assertFalse(result)
 
     # Positive create
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_create_with_libvirt(self):
@@ -227,7 +222,6 @@ class ComputeResourceTestCase(CLITestCase):
                 })
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_loc(self):
         """Create Compute Resource with location
 
@@ -244,7 +238,6 @@ class ComputeResourceTestCase(CLITestCase):
         self.assertEqual(comp_resource['locations'][0], location['name'])
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_locs(self):
         """Create Compute Resource with multiple locations
 
@@ -265,7 +258,6 @@ class ComputeResourceTestCase(CLITestCase):
             self.assertIn(location['name'], comp_resource['locations'])
 
     @tier1
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1214312)
     def test_positive_create_with_console_password(self):
         """Create Compute Resource with different values of
@@ -297,7 +289,6 @@ class ComputeResourceTestCase(CLITestCase):
     # Negative create
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create_with_name_url(self):
         """Compute Resource negative create with invalid values
 
@@ -318,7 +309,6 @@ class ComputeResourceTestCase(CLITestCase):
                     })
 
     @tier1
-    @run_only_on('sat')
     def test_negative_create_with_same_name(self):
         """Compute Resource negative create with the same name
 
@@ -340,7 +330,6 @@ class ComputeResourceTestCase(CLITestCase):
     # Update Positive
 
     @tier1
-    @run_only_on('sat')
     def test_positive_update_name(self):
         """Compute Resource positive update
 
@@ -379,7 +368,6 @@ class ComputeResourceTestCase(CLITestCase):
     # Update Negative
 
     @tier1
-    @run_only_on('sat')
     def test_negative_update(self):
         """Compute Resource negative update
 
@@ -404,7 +392,6 @@ class ComputeResourceTestCase(CLITestCase):
                     self.assertEqual(comp_res[key], result[key])
 
     @tier1
-    @run_only_on('sat')
     def test_positive_create_with_console_password_and_name(self):
         """Create a compute resource with ``--set-console-password``.
 
@@ -427,7 +414,6 @@ class ComputeResourceTestCase(CLITestCase):
                 })
 
     @tier1
-    @run_only_on('sat')
     def test_positive_update_console_password(self):
         """Update a compute resource with ``--set-console-password``.
 

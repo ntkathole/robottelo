@@ -24,7 +24,6 @@ class ForemanTaskTestCase(APITestCase):
     """Tests for the ``foreman_tasks/api/v2/tasks/:id`` path."""
 
     @tier1
-    @run_only_on('sat')
     def test_negative_fetch_non_existent_task(self):
         """Fetch a non-existent task.
 
@@ -38,7 +37,6 @@ class ForemanTaskTestCase(APITestCase):
             entities.ForemanTask(id='abc123').read()
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     def test_positive_get_summary(self):
         """Get a summary of foreman tasks.

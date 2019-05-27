@@ -119,7 +119,6 @@ class ComputeResourceHostTestCase(CLITestCase):
             Host.delete({'id': host['id']})
 
     @tier3
-    @run_only_on('sat')
     def test_positive_provision_rhev_with_host_group(self):
         """Provision a host on RHEV compute resource with
         the help of hostgroup.
@@ -194,7 +193,6 @@ class ComputeResourceHostTestCase(CLITestCase):
         with self.assertNotRaises(ProvisioningCheckError):
             host_provisioning_check(ip_addr=host_ip)
 
-    @run_only_on('sat')
     @tier3
     def test_positive_provision_vmware_with_host_group(self):
         """ Provision a host on vmware compute resource with

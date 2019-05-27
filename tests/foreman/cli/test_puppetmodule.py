@@ -42,7 +42,6 @@ class PuppetModuleTestCase(CLITestCase):
         })
         Repository.synchronize({'id': cls.repo['id']})
 
-    @run_only_on('sat')
     @skip_if_bug_open('bugzilla', 1283173)
     @tier1
     def test_positive_list(self):
@@ -59,7 +58,6 @@ class PuppetModuleTestCase(CLITestCase):
         # There are 4 puppet modules in the test puppet-module url
         self.assertEqual(len(result), 4)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_info(self):
         """Check if puppet-module info retrieves info for the given
@@ -81,7 +79,6 @@ class PuppetModuleTestCase(CLITestCase):
             )
             self.assertEqual(result['id'], return_value[i]['id'])
 
-    @run_only_on('sat')
     @tier1
     @upgrade
     def test_positive_list_multiple_repos(self):

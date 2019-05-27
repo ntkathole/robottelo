@@ -32,7 +32,6 @@ class RepositorySetTestCase(APITestCase):
     """Tests for ``katello/api/v2/products/<product_id>/repository_sets``."""
 
     @tier1
-    @run_only_on('sat')
     def test_positive_reposet_enable(self):
         """Enable repo from reposet
 
@@ -69,7 +68,6 @@ class RepositorySetTestCase(APITestCase):
         ][0])
 
     @tier1
-    @run_only_on('sat')
     @upgrade
     def test_positive_reposet_disable(self):
         """Disable repo from reposet

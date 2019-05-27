@@ -49,7 +49,6 @@ class PartitionTableUpdateCreateTestCase(CLITestCase):
                 ptable = make_partition_table({'name': name})
                 self.assertEqual(ptable['name'], name)
 
-    @run_only_on('sat')
     @tier1
     def test_positive_create_with_name(self):
         """Create Partition Tables with different names
@@ -96,7 +95,6 @@ class PartitionTableUpdateCreateTestCase(CLITestCase):
         ptable_content = PartitionTable().dump({'id': ptable['id']})
         self.assertTrue(content in ptable_content[0])
 
-    @run_only_on('sat')
     @tier1
     def test_positive_update_name(self):
         """Create a Partition Table and update its name

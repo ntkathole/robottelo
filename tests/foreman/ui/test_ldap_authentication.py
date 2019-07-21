@@ -382,7 +382,7 @@ def test_positive_update_external_roles(
             with raises(NavigationTriesExceeded):
                 ldapsession.architecture.search('')
             ldapsession.location.create({'name': location_name})
-            assert ldapsession.location.search(location_name)[0]['Name'] == location_name
+            assert location_name in ldapsession.location.search(location_name)[0]['Name']
             current_user = ldapsession.location.read(location_name, 'current_user')['current_user']
             assert current_user == ldap_data['ldap_user_name']
         session.usergroup.update(
